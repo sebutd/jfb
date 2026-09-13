@@ -1,599 +1,588 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JFB Landschaftsbau - Professionelle Gartengestaltung</title>
-    <style>
-        /* Grundlegendes Reset und Variablen */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>JFB Landschaftsbau</title>
+<link href="https://fonts.cdnfonts.com/css/edo" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --black:#111;--dark:#1a1a1a;--dark2:#222;--white:#f5f4f0;
+    --green:#4a7c2f;--green-light:#6aab3f;--green-pale:#eaf3de;
+    --gray:#888;--border:#2e2e2e;
+  }
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;color:#111;scroll-behavior:smooth;}
+  a{color:inherit;text-decoration:none;}
 
-        :root {
-            /* Hauptfarbe: Schwarz */
-            --primary-color: #000000;
-            --secondary-color: #1a1a1a;
-            --accent-color: #8b4513; /* Erdiger Akzent für Landschaftsbau */
-            
-            /* Helle Bereiche für Lesbarkeit */
-            --light-bg: #fafafa;
-            --card-bg: #ffffff;
-            --border-color: #e0e0e0;
-            
-            /* Textfarben */
-            --dark-text: #1a1a1a;
-            --light-text: #ffffff;
-            --muted-text: #666666;
-        }
+  /* NAV */
+  nav{position:fixed;top:0;width:100%;background:rgba(17,17,17,0.97);backdrop-filter:blur(8px);z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #2e2e2e;}
+  .nav-logo{display:flex;align-items:center;gap:.6rem;}
+  .nav-logo img{height:32px;width:auto;object-fit:contain;}
+  .nav-logo span{color:#fff;font-family:'Edo',sans-serif;font-size:1.25rem;letter-spacing:.04em;}
+  .nav-links{display:flex;gap:1.5rem;}
+  .nav-links a{color:#ccc;font-size:.85rem;letter-spacing:.03em;transition:color .2s;}
+  .nav-links a:hover{color:var(--green-light);}
+  .nav-toggle{display:none;background:none;border:1px solid #333;border-radius:.3rem;padding:.35rem .5rem;cursor:pointer;color:#fff;}
+  .nav-toggle svg{display:block;}
+  .mobile-menu{display:none;position:fixed;top:57px;left:0;right:0;background:rgba(17,17,17,0.98);border-bottom:1px solid #2e2e2e;padding:1rem 2rem;z-index:99;flex-direction:column;gap:0;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{color:#ccc;font-size:.95rem;padding:.75rem 0;border-bottom:1px solid #1e1e1e;letter-spacing:.03em;}
+  .mobile-menu a:last-child{border-bottom:none;}
+  .mobile-menu a:hover{color:var(--green-light);}
 
-        html {
-            scroll-behavior: smooth;
-        }
+  /* HERO */
+  #hero{min-height:100vh;background:linear-gradient(160deg,#0d0d0d 60%,#1a2e14 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden;}
+  #hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 60%,rgba(74,124,47,.18) 0%,transparent 70%);}
+  .hero-content{position:relative;z-index:1;max-width:700px;}
+  .hero-badge{display:inline-block;background:rgba(74,124,47,.2);border:1px solid rgba(106,171,63,.35);color:var(--green-light);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;padding:.35rem 1rem;border-radius:2rem;margin-bottom:1.5rem;}
+  h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:1rem;}
+  h1 span{color:var(--green-light);}
+  .hero-sub{font-size:1.1rem;color:#aaa;line-height:1.7;margin-bottom:2.5rem;max-width:520px;margin-left:auto;margin-right:auto;}
+  .btn{display:inline-block;padding:.85rem 2rem;border-radius:.25rem;font-size:.9rem;font-weight:600;letter-spacing:.04em;cursor:pointer;transition:all .2s;}
+  .btn-green{background:var(--green);color:#fff;border:2px solid var(--green);}
+  .btn-green:hover{background:var(--green-light);border-color:var(--green-light);}
+  .btn-outline{background:transparent;color:#fff;border:2px solid #444;margin-left:.75rem;}
+  .btn-outline:hover{border-color:#888;}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-text);
-            background: var(--light-bg);
-        }
+  /* SECTIONS */
+  section{padding:5rem 2rem;}
+  .container{max-width:1000px;margin:0 auto;}
+  .section-label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:.6rem;}
+  h2{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;line-height:1.2;margin-bottom:1.5rem;}
+  .divider{width:48px;height:3px;background:var(--green);border-radius:2px;margin:1rem 0 1.5rem;}
 
-        /* Navigation - Schwarz als Hauptfarbe */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--primary-color);
-            padding: 1rem 2rem;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            border-bottom: 2px solid var(--accent-color);
-        }
+  /* ÜBER UNS */
+  #ueber{background:#fff;}
+  .ueber-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
+  .ueber-text p{color:#444;line-height:1.8;margin-bottom:1rem;}
+  .ueber-visual{background:var(--dark);border-radius:.75rem;min-height:280px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem;border:1px solid #2e2e2e;}
+  .ueber-visual p{color:#555;font-size:.8rem;margin-top:.5rem;}
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+  /* LEISTUNGEN */
+  #leistungen{background:var(--dark);color:#fff;}
+  #leistungen h2{color:#fff;}
+  #leistungen .section-label{color:var(--green-light);}
+  .leistungen-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:2rem;}
+  .leistung-card{background:#1e1e1e;border:1px solid #2e2e2e;border-radius:.5rem;padding:1.5rem;transition:border-color .2s;}
+  .leistung-card:hover{border-color:var(--green);}
+  .leistung-icon{width:44px;height:44px;background:rgba(74,124,47,.2);border-radius:.4rem;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;}
+  .leistung-icon svg{stroke:var(--green-light);}
+  .leistung-card h3{font-size:1rem;font-weight:600;color:#fff;margin-bottom:.5rem;}
+  .leistung-card p{font-size:.85rem;color:#888;line-height:1.6;}
 
-        .logo {
-            color: var(--light-text);
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
+  /* PROJEKTE */
+  #projekte{background:#fff;}
+  .projekte-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:2rem;}
+  .projekt-card{border-radius:.5rem;overflow:hidden;border:1px solid #e0e0e0;transition:transform .2s,box-shadow .2s;cursor:pointer;}
+  .projekt-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.1);}
+  .projekt-img{height:240px;position:relative;overflow:hidden;background:#111;}
+  .slider{display:flex;height:100%;transition:transform .4s ease;}
+  .slider img{min-width:100%;height:240px;object-fit:cover;flex-shrink:0;}
+  .slide-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.55);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;z-index:2;transition:background .2s;}
+  .slide-btn:hover{background:rgba(0,0,0,.85);}
+  .slide-prev{left:8px;} .slide-next{right:8px;}
+  .slide-dots{position:absolute;bottom:8px;left:0;right:0;display:flex;justify-content:center;gap:5px;flex-wrap:wrap;padding:0 8px;}
+  .slide-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.45);cursor:pointer;transition:background .2s;}
+  .slide-dot.active{background:#fff;}
+  .projekt-info{padding:1.25rem;}
+  .projekt-info h3{font-size:1rem;font-weight:600;margin-bottom:.3rem;}
+  .projekt-info p{font-size:.83rem;color:#666;}
+  .projekt-tag{display:inline-block;font-size:.72rem;background:var(--green-pale);color:var(--green);padding:.2rem .65rem;border-radius:1rem;margin-top:.6rem;font-weight:500;}
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
+  /* KONTAKT */
+  #kontakt{background:var(--dark);color:#fff;}
+  #kontakt h2{color:#fff;}
+  #kontakt .section-label{color:var(--green-light);}
+  .kontakt-wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:start;margin-top:2rem;}
+  .kontakt-info p{color:#aaa;line-height:1.8;margin-bottom:1.5rem;}
+  .kontakt-detail{display:flex;gap:.75rem;align-items:flex-start;margin-bottom:1rem;}
+  .kontakt-detail-icon{width:36px;height:36px;background:rgba(74,124,47,.2);border-radius:.35rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .kontakt-detail-icon svg{stroke:var(--green-light);}
+  .kontakt-detail-text span{display:block;font-size:.78rem;color:#666;}
+  .kontakt-detail-text strong,.kontakt-detail-text a{font-size:.9rem;color:#ddd;font-weight:600;}
+  .kontakt-detail-text a{transition:color .2s;}
+  .kontakt-detail-text a:hover{color:var(--green-light);}
+  .form-group{margin-bottom:1rem;}
+  .form-group label{display:block;font-size:.8rem;color:#888;margin-bottom:.4rem;letter-spacing:.03em;}
+  .form-group input,.form-group textarea{width:100%;background:#1e1e1e;border:1px solid #2e2e2e;border-radius:.35rem;padding:.75rem 1rem;color:#fff;font-size:.9rem;font-family:inherit;transition:border-color .2s;outline:none;}
+  .form-group input:focus,.form-group textarea:focus{border-color:var(--green);}
+  .form-group textarea{height:120px;resize:vertical;}
+  .btn-submit{width:100%;padding:.9rem;background:var(--green);color:#fff;border:none;border-radius:.35rem;font-size:.9rem;font-weight:600;letter-spacing:.04em;cursor:pointer;transition:background .2s;}
+  .btn-submit:hover{background:var(--green-light);}
+  .form-success{display:none;background:rgba(74,124,47,.2);border:1px solid var(--green);border-radius:.35rem;padding:1rem;color:#9adb6a;text-align:center;margin-top:1rem;}
 
-        .nav-links a {
-            color: var(--light-text);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-            padding: 0.5rem 0;
-            border-bottom: 2px solid transparent;
-        }
+  /* FOOTER */
+  footer{background:#0a0a0a;color:#555;text-align:center;padding:2rem;font-size:.8rem;border-top:1px solid #1e1e1e;}
+  footer span{color:var(--green);}
+  footer a{color:#666;text-decoration:none;margin:0 .5rem;transition:color .2s;}
+  footer a:hover{color:var(--green-light);}
 
-        .nav-links a:hover {
-            color: var(--accent-color);
-            border-bottom: 2px solid var(--accent-color);
-        }
+  /* PROJECT OVERLAY */
+  #overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:200;align-items:center;justify-content:center;padding:1.5rem;}
+  #overlay.open{display:flex;}
+  #overlay-inner{background:#1a1a1a;border-radius:.75rem;max-width:780px;width:100%;overflow:hidden;position:relative;max-height:90vh;display:flex;flex-direction:column;}
+  #overlay-slider-wrap{position:relative;overflow:hidden;flex-shrink:0;}
+  #overlay-slider{display:flex;transition:transform .4s ease;}
+  #overlay-slider img{min-width:100%;max-height:55vh;object-fit:cover;flex-shrink:0;}
+  .ov-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.6);border:none;color:#fff;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;z-index:2;transition:background .2s;}
+  .ov-btn:hover{background:rgba(0,0,0,.9);}
+  .ov-prev{left:12px;} .ov-next{right:12px;}
+  #overlay-dots{display:flex;justify-content:center;gap:6px;padding:.75rem 0 .25rem;flex-wrap:wrap;}
+  #overlay-dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;display:block;transition:background .2s;}
+  #overlay-dots span.active{background:#fff;}
+  #overlay-info{padding:1.25rem 1.5rem 1.5rem;overflow-y:auto;}
+  #overlay-info h3{color:#fff;font-size:1.15rem;font-weight:600;margin-bottom:.4rem;}
+  #overlay-info p{color:#aaa;font-size:.9rem;line-height:1.6;}
+  #overlay-info .projekt-tag{margin-top:.75rem;}
+  #overlay-close{position:absolute;top:12px;right:12px;background:rgba(0,0,0,.7);border:none;color:#fff;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;z-index:3;transition:background .2s;}
+  #overlay-close:hover{background:rgba(0,0,0,1);}
 
-        /* Hamburger Menu für Mobile */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
+  /* LEGAL OVERLAY */
+  #legal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:300;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;}
+  #legal-overlay.open{display:flex;}
+  #legal-inner{background:#1a1a1a;border-radius:.75rem;max-width:720px;width:100%;position:relative;padding:2.5rem 2rem 2rem;}
+  #legal-inner h2{color:#fff;font-size:1.4rem;margin-bottom:1.5rem;}
+  #legal-inner h3{color:#ddd;font-size:1rem;margin:1.25rem 0 .5rem;}
+  #legal-inner p,#legal-inner li{color:#aaa;font-size:.88rem;line-height:1.8;}
+  #legal-inner ul{padding-left:1.25rem;margin:.5rem 0;}
+  #legal-inner a{color:var(--green-light);}
+  #legal-close{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.08);border:none;color:#fff;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+  #legal-close:hover{background:rgba(255,255,255,.18);}
 
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--light-text);
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section - Dunkler mit Schwarz */
-        header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1920') no-repeat center center/cover;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--light-text);
-            padding-top: 60px;
-            border-bottom: 4px solid var(--accent-color);
-        }
-
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            letter-spacing: 2px;
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: #cccccc;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--primary-color);
-            color: var(--light-text);
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: all 0.3s;
-            border: 2px solid var(--accent-color);
-        }
-
-        .cta-button:hover {
-            background: var(--accent-color);
-            border-color: var(--accent-color);
-            transform: translateY(-2px);
-        }
-
-        /* Sections - Helle Hintergründe für Lesbarkeit */
-        section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Abwechselnd weiß und leicht grau für Struktur */
-        section:nth-child(odd) {
-            background: var(--card-bg);
-        }
-
-        section:nth-child(even) {
-            background: var(--light-bg);
-        }
-
-        h2 {
-            color: var(--primary-color);
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        /* Schwarze Unterstreichung unter Überschriften */
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--primary-color);
-        }
-
-        /* Über Mich */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-image {
-            background: var(--primary-color);
-            height: 300px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--light-text);
-            font-size: 1.2rem;
-            border: 3px solid var(--accent-color);
-        }
-
-        /* Referenzen */
-        .references-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .reference-card {
-            background: var(--card-bg);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid var(--border-color);
-        }
-
-        .reference-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-            border-color: var(--primary-color);
-        }
-
-        .reference-image {
-            height: 200px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--light-text);
-            border-bottom: 2px solid var(--accent-color);
-        }
-
-        .reference-info {
-            padding: 1.5rem;
-        }
-
-        .reference-info h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Kontakt */
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .contact-info {
-            background: var(--primary-color);
-            color: var(--light-text);
-            padding: 2rem;
-            border-radius: 10px;
-            border: 2px solid var(--accent-color);
-        }
-
-        .contact-info h3 {
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 0.5rem;
-        }
-
-        .contact-item {
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-form {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            border: 1px solid var(--border-color);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--primary-color);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid var(--border-color);
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
-        .form-group textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
-        button[type="submit"] {
-            background: var(--primary-color);
-            color: var(--light-text);
-            padding: 1rem 2rem;
-            border: 2px solid var(--primary-color);
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-        }
-
-        button[type="submit"]:hover {
-            background: var(--accent-color);
-            border-color: var(--accent-color);
-            transform: translateY(-2px);
-        }
-
-        /* Footer - Schwarz mit Akzenten */
-        footer {
-            background: var(--primary-color);
-            color: var(--light-text);
-            padding: 3rem 2rem;
-            text-align: center;
-            border-top: 4px solid var(--accent-color);
-        }
-
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--light-text);
-            text-decoration: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-
-        .social-link.whatsapp {
-            background: #25D366;
-        }
-
-        .social-link.instagram {
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-        }
-
-        .social-link.phone {
-            background: var(--primary-color);
-            border: 2px solid var(--accent-color);
-        }
-
-        .social-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .copyright {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            opacity: 0.7;
-            border-top: 1px solid #333;
-            padding-top: 1rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background: var(--primary-color);
-                padding: 1rem;
-                text-align: center;
-                border-bottom: 2px solid var(--accent-color);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .hero-content p {
-                font-size: 1.2rem;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .references-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-social {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h2 {
-                font-size: 2rem;
-            }
-
-            section {
-                padding: 3rem 1rem;
-            }
-
-            .nav-container {
-                padding: 0 1rem;
-            }
-        }
-    </style>
+  @media(max-width:680px){
+    .ueber-grid,.kontakt-wrap{grid-template-columns:1fr;}
+    .leistungen-grid{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+    .btn-outline{display:none;}
+    .nav-toggle{display:block;}
+  }
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <img src="https://sebutd.github.io/jfb/images/photo.jpg" alt="Logo">
-            <a href="#" class="logo">JFB Landschaftsbau</a>
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Startseite</a></li>
-                <li><a href="#about">Über mich</a></li>
-                <li><a href="#references">Referenzen</a></li>
-                <li><a href="#contact">Kontakt</a></li>
-            </ul>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="jfb_logo.png" alt="JFB Logo"/>
+    <span>JFB Landschaftsbau</span>
+  </div>
+  <div class="nav-links">
+    <a href="#ueber">Über uns</a>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#projekte">Projekte</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+  <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menü öffnen">
+    <svg id="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    <svg id="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#ueber" onclick="closeMenu()">Über uns</a>
+  <a href="#leistungen" onclick="closeMenu()">Leistungen</a>
+  <a href="#projekte" onclick="closeMenu()">Projekte</a>
+  <a href="#kontakt" onclick="closeMenu()">Kontakt</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Landschaftsbau · Straßenbau · Erdbau · Abbruch</div>
+    <h1>Wir gestalten.<br><span>Wir bauen. Wir bewegen.</span></h1>
+    <p class="hero-sub">JFB Landschaftsbau steht für handwerkliche Qualität und zuverlässige Ausführung – von der Gartengestaltung bis zum Straßen- und Tiefbau.</p>
+    <a href="#kontakt" class="btn btn-green">Projekt anfragen</a>
+    <a href="#projekte" class="btn btn-outline">Unsere Arbeiten</a>
+  </div>
+</section>
+
+<!-- ÜBER UNS -->
+<section id="ueber">
+  <div class="container">
+    <div class="ueber-grid">
+      <div class="ueber-text">
+        <div class="section-label">Über uns</div>
+        <h2>Mit Leidenschaft gebaut seit 2020</h2>
+        <div class="divider"></div>
+        <p>JFB Landschaftsbau wurde 2020 gegründet und ist seitdem stetig gewachsen. Mit einem engagierten und erfahrenen Team übernehmen wir Projekte rund um Landschaftsbau, Straßen- und Tiefbau, Erdbau sowie Abbrucharbeiten.</p>
+        <p>Egal ob privater Garten, öffentliche Verkehrsfläche oder industrielles Gelände – wir setzen jedes Projekt mit dem gleichen Anspruch um: sauber, zuverlässig und termingerecht.</p>
+      </div>
+      <div class="ueber-visual">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="36" stroke="#4a7c2f" stroke-width="1.5"/>
+          <path d="M40 56 C40 56 20 44 20 30 C20 21 29 15 40 22 C51 15 60 21 60 30 C60 44 40 56 40 56Z" fill="#4a7c2f" opacity=".6"/>
+          <line x1="40" y1="56" x2="40" y2="64" stroke="#6aab3f" stroke-width="1.5"/>
+        </svg>
+        <p>Ihr Bild hier · Foto des Teams oder Projekts</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEISTUNGEN -->
+<section id="leistungen">
+  <div class="container">
+    <div class="section-label">Was wir tun</div>
+    <h2>Unsere Leistungen</h2>
+    <div class="leistungen-grid">
+      <div class="leistung-card">
+        <div class="leistung-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a9 9 0 0 1 9 9c0 5-9 13-9 13S3 16 3 11a9 9 0 0 1 9-9z"/><circle cx="12" cy="11" r="3"/></svg>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header id="home">
-        <div class="hero-content">
-            <h1>JFB Landschaftsbau</h1>
-            <p>Ihr Partner für professionelle Gartengestaltung</p>
-            <a href="#contact" class="cta-button">Jetzt anfragen</a>
+        <h3>Landschaftsbau</h3>
+        <p>Individuelle Gestaltung von Außenanlagen – von der Gartenplanung über Bepflanzung bis hin zu Wegen, Terrassen und Pflasterarbeiten.</p>
+      </div>
+      <div class="leistung-card">
+        <div class="leistung-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
         </div>
-    </header>
-
-    <!-- Über Mich Section -->
-    <section id="about">
-        <h2>Über mich</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>Seit über 15 Jahren gestalte ich mit Leidenschaft und Fachwissen Gärten, die nicht nur schön aussehen, sondern auch nachhaltig und pflegeleicht sind.</p>
-                <br>
-                <p>Als zertifizierter Landschaftsgärtner lege ich besonderen Wert auf individuelle Beratung und hochwertige Ausführung. Jedes Projekt wird von mir persönlich betreut – von der ersten Planung bis zur finalen Umsetzung.</p>
-                <br>
-                <p>Mit einem Auge für Details und einem Verständnis für natürliche Zusammenhänge schaffe ich Außenräume, die zum Wohlfühlen einladen.</p>
-            </div>
-            <div class="about-image">
-                [Ihr Foto hier]
-            </div>
+        <h3>Straßen- und Tiefbau</h3>
+        <p>Professionelle Ausführung von Straßenbaumaßnahmen, Kanalbauarbeiten und Tiefbauprojekten für private und öffentliche Auftraggeber.</p>
+      </div>
+      <div class="leistung-card">
+        <div class="leistung-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M6 20V10l6-6 6 6v10"/><path d="M10 20v-5h4v5"/></svg>
         </div>
-    </section>
-
-    <!-- Referenzen Section -->
-    <section id="references">
-        <h2>Referenzen</h2>
-        <div class="references-grid">
-            <div class="reference-card">
-                <div class="reference-image">Projektbild 1</div>
-                <div class="reference-info">
-                    <h3>Gartengestaltung Privatgarten</h3>
-                    <p>Komplette Neugestaltung eines 500m² Gartens mit Terrasse, Teich und Staudenbeeten.</p>
-                </div>
-            </div>
-            <div class="reference-card">
-                <div class="reference-image">Projektbild 2</div>
-                <div class="reference-info">
-                    <h3>Wohnanlage Grünanlage</h3>
-                    <p>Anlage einer Gemeinschaftsfläche für eine Wohnanlage mit Spielbereich und Sitzplätzen.</p>
-                </div>
-            </div>
-            <div class="reference-card">
-                <div class="reference-image">Projektbild 3</div>
-                <div class="reference-info">
-                    <h3>Parkanlage Pflege</h3>
-                    <p>Regelmäßige Pflege und Instandhaltung einer öffentlichen Parkanlage.</p>
-                </div>
-            </div>
+        <h3>Erdbau</h3>
+        <p>Erdarbeiten jeder Größenordnung – Aushub, Planierung, Geländemodellierung und Verfüllung mit modernen Maschinen und erfahrenem Personal.</p>
+      </div>
+      <div class="leistung-card">
+        <div class="leistung-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
         </div>
-    </section>
+        <h3>Abbruch</h3>
+        <p>Kontrollierter Rückbau und fachgerechte Entsorgung von Gebäuden, Befestigungen und Bauwerken – sicher, sauber und umweltgerecht.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Kontakt Section -->
-    <section id="contact">
-        <h2>Kontakt</h2>
-        <div class="contact-content">
-            <div class="contact-info">
-                <h3>JFB Landschaftsbau</h3>
-                <div class="contact-item">📍 Am Brink 2, 49777 Klein Berssen</div>
-                <div class="contact-item">📞 +49 160 91847701</div>
-                <div class="contact-item">✉️ info@jfb-landschaftsbau.de</div>
-                <!--<div class="contact-item">🕐 Mo-Fr: 8:00 - 18:00 Uhr</div>-->
-            </div>
-            <div class="contact-form">
-                <form>
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-Mail</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Nachricht</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit">Nachricht senden</button>
-                </form>
-            </div>
+<!-- PROJEKTE -->
+<section id="projekte">
+  <div class="container">
+    <div class="section-label">Referenzen</div>
+    <h2>Ausgewählte Projekte</h2>
+    <div class="projekte-grid">
+      <div class="projekt-card" onclick="openOverlay(0)">
+        <div class="projekt-img" id="s0">
+          <div class="slider" id="sl0"></div>
+          <button class="slide-btn slide-prev" onclick="event.stopPropagation();slide('sl0','sd0',-1)">&#8249;</button>
+          <button class="slide-btn slide-next" onclick="event.stopPropagation();slide('sl0','sd0',1)">&#8250;</button>
+          <div class="slide-dots" id="sd0"></div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-social">
-            <a href="https://wa.me/4916091847701" class="social-link whatsapp" target="_blank">
-                💬 WhatsApp
-            </a>
-            <a href="https://instagram.com/jfb_landschaftsbau" class="social-link instagram" target="_blank">
-                📷 Instagram
-            </a>
-            <a href="tel:+4916091847701" class="social-link phone">
-                📞 Anrufen
-            </a>
+        <div class="projekt-info">
+          <h3>Mühlenbau in Groß Stavern</h3>
+          <p>Komplette Neugestaltung der historischen Mühle in Groß Stavern.</p>
+          <span class="projekt-tag">Landschaftsbau</span>
         </div>
-        <p class="copyright">&copy; 2026 JFB Landschaftsbau. Alle Rechte vorbehalten.</p>
-    </footer>
+      </div>
+      <div class="projekt-card" onclick="openOverlay(1)">
+        <div class="projekt-img" id="s1">
+          <div class="slider" id="sl1"></div>
+          <button class="slide-btn slide-prev" onclick="event.stopPropagation();slide('sl1','sd1',-1)">&#8249;</button>
+          <button class="slide-btn slide-next" onclick="event.stopPropagation();slide('sl1','sd1',1)">&#8250;</button>
+          <div class="slide-dots" id="sd1"></div>
+        </div>
+        <div class="projekt-info">
+          <h3>Straßenbau in Haselünne</h3>
+          <p>Sanierung der historischen Straße in der Altstadt von Haselünne.</p>
+          <span class="projekt-tag">Straßenbau</span>
+        </div>
+      </div>
+      <div class="projekt-card" onclick="openOverlay(2)">
+        <div class="projekt-img" id="s2">
+          <div class="slider" id="sl2"></div>
+          <button class="slide-btn slide-prev" onclick="event.stopPropagation();slide('sl2','sd2',-1)">&#8249;</button>
+          <button class="slide-btn slide-next" onclick="event.stopPropagation();slide('sl2','sd2',1)">&#8250;</button>
+          <div class="slide-dots" id="sd2"></div>
+        </div>
+        <div class="projekt-info">
+          <h3>Abbruch in Meppen</h3>
+          <p>Abbruch und Entsorgung eines Einfamilienhauses in Meppen.</p>
+          <span class="projekt-tag">Abbruch</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Mobile Menu Toggle
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active');
-        }
+<!-- KONTAKT -->
+<section id="kontakt">
+  <div class="container">
+    <div class="section-label">Kontakt</div>
+    <h2>Projekt anfragen</h2>
+    <div class="kontakt-wrap">
+      <div class="kontakt-info">
+        <p>Sie haben ein Projekt im Kopf? Wir beraten Sie gerne unverbindlich. Einfach Formular ausfüllen oder direkt anrufen.</p>
+        <div class="kontakt-detail">
+          <div class="kontakt-detail-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.08 3.4 2 2 0 0 1 3.05 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+          </div>
+          <div class="kontakt-detail-text"><span>Telefon</span><a href="tel:+4916091847701">+49 (0) 160 91847701</a></div>
+        </div>
+        <div class="kontakt-detail">
+          <div class="kontakt-detail-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="kontakt-detail-text"><span>E-Mail</span><a href="mailto:info@jfb-landschaftsbau.de">info@jfb-landschaftsbau.de</a></div>
+        </div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Am+Brink+1,+49777+Klein+Berssen" target="_blank" class="kontakt-detail" style="transition:opacity .2s;" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'">
+          <div class="kontakt-detail-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6aab3f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="kontakt-detail-text"><span>Standort</span><strong>Am Brink 1, 49777 Klein Berssen</strong></div>
+        </a>
+        <div style="display:flex;gap:.75rem;margin-top:1.5rem;">
+          <a href="https://wa.me/4916091847701" target="_blank" style="display:flex;align-items:center;gap:.5rem;background:#1e1e1e;border:1px solid #2e2e2e;border-radius:.35rem;padding:.6rem 1rem;color:#ddd;font-size:.85rem;font-weight:500;transition:border-color .2s;" onmouseover="this.style.borderColor='#25D366'" onmouseout="this.style.borderColor='#2e2e2e'">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href="https://www.instagram.com/jfb_landschaftsbau" target="_blank" style="display:flex;align-items:center;gap:.5rem;background:#1e1e1e;border:1px solid #2e2e2e;border-radius:.35rem;padding:.6rem 1rem;color:#ddd;font-size:.85rem;font-weight:500;transition:border-color .2s;" onmouseover="this.style.borderColor='#E1306C'" onmouseout="this.style.borderColor='#2e2e2e'">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#E1306C" stroke="none"/></svg>
+            Instagram
+          </a>
+        </div>
+      </div>
+      <div>
+        <form id="kontakt-form" action="https://formspree.io/f/myeyqjrl" method="POST">
+          <div class="form-group"><label>Name</label><input type="text" name="name" placeholder="Max Mustermann" required/></div>
+          <div class="form-group"><label>E-Mail</label><input type="email" name="email" placeholder="max@beispiel.de" required/></div>
+          <div class="form-group"><label>Telefon (optional)</label><input type="tel" name="telefon" placeholder="+49 ..."/></div>
+          <div class="form-group"><label>Ihre Nachricht</label><textarea name="message" placeholder="Beschreiben Sie kurz Ihr Projekt oder Ihr Anliegen…" required></textarea></div>
+          <button type="submit" class="btn-submit">Anfrage senden</button>
+        </form>
+        <div class="form-success" id="form-success">✓ Nachricht gesendet! Wir melden uns bald bei Ihnen.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Close menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('.nav-links').classList.remove('active');
-            });
-        });
+<!-- PROJECT OVERLAY -->
+<div id="overlay" onclick="if(event.target===this)closeOverlay()">
+  <div id="overlay-inner">
+    <button id="overlay-close" onclick="closeOverlay()">&#10005;</button>
+    <div id="overlay-slider-wrap">
+      <div id="overlay-slider"></div>
+      <button class="ov-btn ov-prev" onclick="ovSlide(-1)">&#8249;</button>
+      <button class="ov-btn ov-next" onclick="ovSlide(1)">&#8250;</button>
+    </div>
+    <div id="overlay-dots"></div>
+    <div id="overlay-info">
+      <h3 id="ov-title"></h3>
+      <p id="ov-desc"></p>
+      <span class="projekt-tag" id="ov-tag"></span>
+    </div>
+  </div>
+</div>
 
-        // Smooth scroll for older browsers
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+<!-- LEGAL OVERLAY -->
+<div id="legal-overlay" onclick="if(event.target===this)closeLegal()">
+  <div id="legal-inner">
+    <button id="legal-close" onclick="closeLegal()">&#10005;</button>
+    <div id="legal-content"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>JFB Landschaftsbau</span> · Klein Berssen, Niedersachsen · Alle Rechte vorbehalten</p>
+  <p style="margin-top:.5rem;">
+    <a href="#" onclick="openLegal('impressum');return false;">Impressum</a>
+    ·
+    <a href="#" onclick="openLegal('datenschutz');return false;">Datenschutzerklärung</a>
+  </p>
+</footer>
+
+<script>
+// ── MOBILE MENU ──
+function toggleMenu(){
+  const m=document.getElementById('mobileMenu');
+  const open=m.classList.toggle('open');
+  document.getElementById('icon-menu').style.display=open?'none':'block';
+  document.getElementById('icon-close').style.display=open?'block':'none';
+}
+function closeMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('icon-menu').style.display='block';
+  document.getElementById('icon-close').style.display='none';
+}
+
+// ── PROJECTS DATA ──
+const projects=[
+  {
+    folder:'muehlenbau', count:11,
+    title:'Mühlenbau in Groß Stavern',
+    desc:'Komplette Neugestaltung der historischen Mühle in Groß Stavern.',
+    tag:'Landschaftsbau'
+  },
+  {
+    folder:'strassenbau', count:8,
+    title:'Straßenbau in Haselünne',
+    desc:'Sanierung der historischen Straße in der Altstadt von Haselünne.',
+    tag:'Straßenbau'
+  },
+  {
+    folder:'abbruch', count:8,
+    title:'Abbruch in Meppen',
+    desc:'Abbruch und Entsorgung eines Einfamilienhauses in Meppen.',
+    tag:'Abbruch'
+  }
+];
+
+function imgList(p){
+  return Array.from({length:p.count},(_,i)=>`${p.folder}/${i+1}.jpeg`);
+}
+
+// ── CARD SLIDERS ──
+const sliderState={};
+function initSliders(){
+  projects.forEach((p,i)=>{
+    const imgs=imgList(p);
+    const sl=document.getElementById('sl'+i);
+    sl.innerHTML=imgs.map(s=>`<img src="${s}" alt="${p.title} Foto"/>`).join('');
+    sliderState['sl'+i]=0;
+    const dotsEl=document.getElementById('sd'+i);
+    imgs.forEach((_,d)=>{
+      const dot=document.createElement('div');
+      dot.className='slide-dot'+(d===0?' active':'');
+      dot.onclick=(e=>{e.stopPropagation();const di=d;return()=>goTo('sl'+i,'sd'+i,di)})();
+      dotsEl.appendChild(dot);
+    });
+  });
+}
+function goTo(slId,dotId,idx){
+  const sl=document.getElementById(slId);
+  const count=sl.children.length;
+  idx=((idx%count)+count)%count;
+  sliderState[slId]=idx;
+  sl.style.transform=`translateX(-${idx*100}%)`;
+  document.querySelectorAll('#'+dotId+' .slide-dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
+}
+function slide(slId,dotId,dir){goTo(slId,dotId,(sliderState[slId]||0)+dir);}
+
+// ── PROJECT OVERLAY ──
+let ovIdx=0,ovProject=null;
+function openOverlay(pi){
+  ovProject=projects[pi];ovIdx=0;
+  const imgs=imgList(ovProject);
+  const sl=document.getElementById('overlay-slider');
+  sl.innerHTML=imgs.map(s=>`<img src="${s}" alt="${ovProject.title}"/>`).join('');
+  sl.style.transform='translateX(0)';
+  document.getElementById('ov-title').textContent=ovProject.title;
+  document.getElementById('ov-desc').textContent=ovProject.desc;
+  document.getElementById('ov-tag').textContent=ovProject.tag;
+  buildOvDots(imgs.length);
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeOverlay(){
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function buildOvDots(count){
+  const el=document.getElementById('overlay-dots');
+  el.innerHTML=Array.from({length:count},(_,i)=>`<span class="${i===0?'active':''}" onclick="ovGoTo(${i})"></span>`).join('');
+}
+function ovGoTo(i){
+  ovIdx=i;
+  document.getElementById('overlay-slider').style.transform=`translateX(-${i*100}%)`;
+  document.querySelectorAll('#overlay-dots span').forEach((d,j)=>d.classList.toggle('active',j===i));
+}
+function ovSlide(dir){ovGoTo(((ovIdx+dir)%ovProject.imgs.length+ovProject.imgs.length)%ovProject.imgs.length);}
+
+// ── LEGAL OVERLAYS ──
+const legalTexts={
+  impressum:`
+    <h2>Impressum</h2>
+    <h3>Angaben gemäß § 5 TMG</h3>
+    <p>JFB Landschaftsbau · Johannes Ficker<br>Am Brink 1<br>49777 Klein Berssen<br>Niedersachsen, Deutschland</p>
+    <h3>Kontakt</h3>
+    <p>Telefon: <a href="tel:+4916091847701">+49 (0) 160 91847701</a><br>
+    E-Mail: <a href="mailto:info@jfb-landschaftsbau.de">info@jfb-landschaftsbau.de</a></p>
+    <h3>Umsatzsteuer-ID</h3>
+    <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE324026630</p>
+    <h3>Berufsbezeichnung und berufsrechtliche Regelungen</h3>
+    <p>Berufsbezeichnung: Garten- und Landschaftsbauer<br>
+    Zuständige Handwerkskammer: Handwerkskammer Osnabrück – Emsland – Grafschaft Bentheim</p>
+    <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+    <p>Johannes Ficker<br>Am Brink 1, 49777 Klein Berssen</p>
+    <h3>Haftung für Inhalte</h3>
+    <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.</p>
+    <h3>Haftung für Links</h3>
+    <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.</p>
+    <h3>Urheberrecht</h3>
+    <p>Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung oder Verbreitung außerhalb der Grenzen des Urheberrechts bedarf der schriftlichen Zustimmung des Erstellers.</p>
+  `,
+  datenschutz:`
+    <h2>Datenschutzerklärung</h2>
+    <h3>1. Verantwortlicher</h3>
+    <p>Johannes Ficker · JFB Landschaftsbau<br>Am Brink 1, 49777 Klein Berssen<br>
+    E-Mail: <a href="mailto:info@jfb-landschaftsbau.de">info@jfb-landschaftsbau.de</a><br>
+    Telefon: <a href="tel:+4916091847701">+49 (0) 160 91847701</a></p>
+    <h3>2. Hosting – GitHub Pages</h3>
+    <p>Diese Website wird über GitHub Pages (GitHub Inc., 88 Colin P. Kelly Jr. St., San Francisco, CA 94107, USA) gehostet. Beim Aufrufen der Seite speichert GitHub automatisch Zugriffsdaten (IP-Adresse, Browsertyp, Datum/Uhrzeit) in Server-Logfiles. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO. Weitere Informationen: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank">GitHub Privacy Statement</a>.</p>
+    <h3>3. Kontaktformular (Formspree)</h3>
+    <p>Nachrichten über das Kontaktformular werden über den Dienst Formspree (Formspree Inc., USA) übermittelt und an unsere E-Mail-Adresse weitergeleitet. Übertragene Daten: Name, E-Mail-Adresse, Telefonnummer (optional), Nachricht. Die Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet und nicht an Dritte weitergegeben. Rechtsgrundlage: Art. 6 Abs. 1 lit. b und f DSGVO. Datenschutz Formspree: <a href="https://formspree.io/legal/privacy-policy" target="_blank">formspree.io/legal/privacy-policy</a>.</p>
+    <h3>4. Externe Dienste und Links</h3>
+    <ul>
+      <li><strong>Google Maps:</strong> Weiterleitung beim Klick auf den Standort-Link. Google LLC, Mountain View, CA, USA. Datenschutz: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></li>
+      <li><strong>WhatsApp:</strong> Weiterleitung beim Klick auf den WhatsApp-Button. WhatsApp Ireland Limited, Dublin 2, Irland. Datenschutz: <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank">whatsapp.com/legal/privacy-policy</a></li>
+      <li><strong>Instagram:</strong> Verlinkung auf das Instagram-Profil. Meta Platforms Ireland Limited, Dublin 2, Irland. Datenschutz: <a href="https://privacycenter.instagram.com/policy" target="_blank">privacycenter.instagram.com/policy</a></li>
+    </ul>
+    <p>Es werden keine Social-Media-Plugins eingebunden, die ohne Klick Daten übertragen.</p>
+    <h3>5. Ihre Rechte</h3>
+    <p>Sie haben das Recht auf Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18) und Datenübertragbarkeit (Art. 20 DSGVO). Beschwerden können Sie an den Landesbeauftragten für Datenschutz Niedersachsen richten.</p>
+    <h3>6. Cookies</h3>
+    <p>Diese Website setzt keine eigenen Cookies ein.</p>
+    <h3>7. Aktualität</h3>
+    <p>Stand: Juni 2026.</p>
+  `
+};
+function openLegal(type){
+  document.getElementById('legal-content').innerHTML=legalTexts[type];
+  document.getElementById('legal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLegal(){
+  document.getElementById('legal-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+// ── FORMSPREE ──
+document.getElementById('kontakt-form').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=this.querySelector('.btn-submit');
+  btn.textContent='Wird gesendet…';btn.disabled=true;
+  try{
+    const res=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});
+    if(res.ok){
+      this.style.display='none';
+      document.getElementById('form-success').style.display='block';
+    } else {
+      btn.textContent='Fehler – bitte erneut versuchen';btn.disabled=false;
+    }
+  } catch{btn.textContent='Fehler – bitte erneut versuchen';btn.disabled=false;}
+});
+
+// ── KEYBOARD ──
+document.addEventListener('keydown',e=>{
+  if(document.getElementById('legal-overlay').classList.contains('open')&&e.key==='Escape'){closeLegal();return;}
+  if(!document.getElementById('overlay').classList.contains('open'))return;
+  if(e.key==='Escape')closeOverlay();
+  if(e.key==='ArrowLeft')ovSlide(-1);
+  if(e.key==='ArrowRight')ovSlide(1);
+});
+
+// ── INIT ──
+document.addEventListener('DOMContentLoaded',initSliders);
+
+// Fix ovSlide to use array length from imgList
+const _ovSlide=ovSlide;
+window.ovSlide=function(dir){
+  if(!ovProject)return;
+  const len=imgList(ovProject).length;
+  ovGoTo(((ovIdx+dir)%len+len)%len);
+};
+</script>
 </body>
 </html>
