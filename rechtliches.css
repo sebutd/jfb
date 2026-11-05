@@ -5,6 +5,7 @@
 html{font-size:16px;scroll-behavior:smooth;scroll-padding-top:96px;}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#111;color:#aaa;}
+:focus-visible{outline:2px solid var(--green-light);outline-offset:2px;}
 a{color:var(--green-light);}
 nav{position:sticky;top:0;background:#000;border-bottom:1px solid #1a1a1a;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;z-index:10;}
 .nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;min-width:0;}
@@ -21,8 +22,8 @@ p+p{margin-top:.6rem;}
 ul{padding-left:1.25rem;margin:.4rem 0;}
 strong{color:#ddd;}
 .hinweis{background:#1a1a1a;border-left:3px solid var(--green);padding:1rem 1.25rem;border-radius:.35rem;margin-top:.75rem;}
-footer{background:#000;color:#555;text-align:center;padding:1.75rem 1.5rem;font-size:.8rem;border-top:1px solid #1a1a1a;}
-footer a{color:#666;text-decoration:none;margin:0 .4rem;}
+footer{background:#000;color:#999;text-align:center;padding:1.75rem 1.5rem;font-size:.8rem;border-top:1px solid #1a1a1a;}
+footer a{color:#999;text-decoration:none;margin:0 .4rem;display:inline-block;padding:.25rem 0;}
 footer a:hover{color:var(--green-light);}
 @media(max-width:480px){
   .nav-logo span{font-size:1rem;}
