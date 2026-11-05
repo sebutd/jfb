@@ -4,17 +4,21 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>JFB Landschaftsbau</title>
-<link href="https://fonts.cdnfonts.com/css/edo" rel="stylesheet"/>
+<meta name="description" content="JFB Landschaftsbau aus Klein Berssen (Emsland): Garten- und Landschaftsbau, Straßen- und Tiefbau, Erdbau und Abbruch – zuverlässig, sauber und termingerecht."/>
 <link rel="icon" type="image/png" href="jfb_logo.png"/>
+<link rel="preload" href="fonts/edo.woff2" as="font" type="font/woff2" crossorigin/>
 <style>
+/* Schrift lokal gehostet – keine Verbindung zu Drittanbietern */
+@font-face{font-family:'Edo';src:url('fonts/edo.woff2') format('woff2');font-display:swap;}
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
   --black:#000;--dark:#111;--dark2:#1a1a1a;
   --green:#4a7c2f;--green-light:#6aab3f;--green-pale:#eaf3de;
   --white:#f5f4f0;
 }
-html{font-size:16px;}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;color:#111;scroll-behavior:smooth;overflow-x:hidden;}
+html{font-size:16px;scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h,81px) + 8px);}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;color:#111;overflow-x:hidden;}
 a{color:inherit;text-decoration:none;}
 img{display:block;max-width:100%;}
 
@@ -33,7 +37,7 @@ nav{
 .nav-links a{color:#ccc;font-size:.85rem;letter-spacing:.03em;transition:color .2s;}
 .nav-links a:hover{color:var(--green-light);}
 .nav-toggle{display:none;background:none;border:1px solid #333;border-radius:.3rem;padding:.4rem .55rem;cursor:pointer;color:#fff;flex-shrink:0;}
-.mobile-menu{display:none;position:fixed;top:74px;left:0;right:0;background:#000;border-bottom:1px solid #1a1a1a;z-index:99;flex-direction:column;}
+.mobile-menu{display:none;position:fixed;top:var(--nav-h,81px);left:0;right:0;background:#000;border-bottom:1px solid #1a1a1a;z-index:99;flex-direction:column;}
 .mobile-menu.open{display:flex;}
 .mobile-menu a{color:#ccc;font-size:1rem;padding:1rem 1.5rem;border-bottom:1px solid #1a1a1a;transition:color .2s;}
 .mobile-menu a:hover{color:var(--green-light);}
@@ -127,8 +131,9 @@ h1 span{color:var(--green-light);}
   display:flex;justify-content:center;gap:5px;flex-wrap:wrap;padding:0 8px;
   pointer-events:none;
 }
-.slide-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.4);transition:background .2s;pointer-events:auto;cursor:pointer;}
-.slide-dot.active{background:#fff;}
+.slide-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.4);transition:background .2s;pointer-events:auto;cursor:pointer;border:none;padding:0;box-sizing:content-box;background-clip:content-box;}
+@media(pointer:coarse){.slide-dot{padding:4px;margin:-4px;}}
+.slide-dot.active{background:#fff;background-clip:content-box;}
 .projekt-info{padding:1.1rem 1.25rem 1.25rem;}
 .projekt-info h3{font-size:.95rem;font-weight:600;margin-bottom:.3rem;}
 .projekt-info p{font-size:.82rem;color:#666;line-height:1.6;}
@@ -168,6 +173,9 @@ h1 span{color:var(--green-light);}
   -webkit-appearance:none;
 }
 .btn-submit:hover{background:var(--green-light);}
+.btn-submit:disabled{opacity:.7;cursor:wait;}
+.form-hinweis{font-size:.75rem;color:#777;line-height:1.6;margin-top:.75rem;}
+.form-hinweis a{color:var(--green-light);text-decoration:underline;}
 .form-success{display:none;background:rgba(74,124,47,.2);border:1px solid var(--green);border-radius:.35rem;padding:1rem;color:#9adb6a;text-align:center;margin-top:1rem;font-size:.9rem;}
 
 /* ── FOOTER ── */
@@ -206,24 +214,14 @@ footer p+p{margin-top:.5rem;}
 .ov-btn:hover{background:#000;}
 .ov-prev{left:10px;}.ov-next{right:10px;}
 #ov-dots{display:flex;justify-content:center;gap:6px;padding:.6rem 0 .25rem;flex-wrap:wrap;}
-#ov-dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;display:block;transition:background .2s;}
-#ov-dots span.active{background:#fff;}
+#ov-dots button{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;display:block;transition:background .2s;border:none;padding:0;box-sizing:content-box;background-clip:content-box;}
+@media(pointer:coarse){#ov-dots button{padding:4px;margin:-4px;}}
+#ov-dots button.active{background:#fff;background-clip:content-box;}
 #ov-info{padding:1rem 1.25rem 1.5rem;overflow-y:auto;}
 #ov-info h3{color:#fff;font-size:1.1rem;font-weight:600;margin-bottom:.35rem;}
 #ov-info p{color:#aaa;font-size:.88rem;line-height:1.6;}
 .ov-close{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.7);border:none;color:#fff;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;z-index:3;}
 .ov-close:hover{background:#000;}
-
-/* Legal overlay */
-#legal-overlay{z-index:300;align-items:flex-start;overflow-y:auto;}
-#legal-inner{background:#1a1a1a;border-radius:.75rem;max-width:720px;width:100%;position:relative;padding:2.25rem 1.5rem 2rem;margin:auto;}
-#legal-inner h2{color:#fff;font-size:1.35rem;margin-bottom:1.25rem;}
-#legal-inner h3{color:#ddd;font-size:.95rem;margin:1.1rem 0 .4rem;}
-#legal-inner p,#legal-inner li{color:#aaa;font-size:.86rem;line-height:1.8;}
-#legal-inner ul{padding-left:1.2rem;margin:.4rem 0;}
-#legal-inner a{color:var(--green-light);}
-.legal-close{position:absolute;top:.9rem;right:.9rem;background:rgba(255,255,255,.08);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;}
-.legal-close:hover{background:rgba(255,255,255,.2);}
 
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
@@ -259,7 +257,7 @@ footer p+p{margin-top:.5rem;}
     <a href="#projekte">Projekte</a>
     <a href="#kontakt">Kontakt</a>
   </div>
-  <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menü">
+  <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menü" aria-controls="mobileMenu" aria-expanded="false">
     <svg id="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     <svg id="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
   </button>
@@ -358,16 +356,16 @@ footer p+p{margin-top:.5rem;}
           <div class="kontakt-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <div class="kontakt-detail-text"><span>E-Mail</span><a href="mailto:info@jfb-landschaftsbau.de">info@jfb-landschaftsbau.de</a></div>
         </div>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Am+Brink+1,+49777+Klein+Berssen" target="_blank" class="kontakt-detail" style="opacity:1;transition:opacity .2s;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Am+Brink+1,+49777+Klein+Berssen" target="_blank" rel="noopener" class="kontakt-detail" style="opacity:1;transition:opacity .2s;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
           <div class="kontakt-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6aab3f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div class="kontakt-detail-text"><span>Standort</span><strong>Am Brink 1, 49777 Klein Berssen</strong></div>
         </a>
         <div class="social-row">
-          <a href="https://wa.me/4916091847701" target="_blank" class="social-btn" onmouseover="this.style.borderColor='#25D366'" onmouseout="this.style.borderColor='#2e2e2e'">
+          <a href="https://wa.me/4916091847701" target="_blank" rel="noopener" class="social-btn" onmouseover="this.style.borderColor='#25D366'" onmouseout="this.style.borderColor='#2e2e2e'">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
             WhatsApp
           </a>
-          <a href="https://www.instagram.com/jfb_landschaftsbau" target="_blank" class="social-btn" onmouseover="this.style.borderColor='#E1306C'" onmouseout="this.style.borderColor='#2e2e2e'">
+          <a href="https://www.instagram.com/jfb_landschaftsbau" target="_blank" rel="noopener" class="social-btn" onmouseover="this.style.borderColor='#E1306C'" onmouseout="this.style.borderColor='#2e2e2e'">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#E1306C" stroke="none"/></svg>
             Instagram
           </a>
@@ -375,11 +373,12 @@ footer p+p{margin-top:.5rem;}
       </div>
       <div>
         <form id="kontakt-form" action="https://formspree.io/f/myeyqjrl" method="POST">
-          <div class="form-group"><label>Name</label><input type="text" name="name" placeholder="Max Mustermann" required/></div>
-          <div class="form-group"><label>E-Mail</label><input type="email" name="email" placeholder="max@beispiel.de" required/></div>
-          <div class="form-group"><label>Telefon (optional)</label><input type="tel" name="telefon" placeholder="+49 ..."/></div>
-          <div class="form-group"><label>Ihre Nachricht</label><textarea name="message" placeholder="Beschreiben Sie kurz Ihr Projekt …" required></textarea></div>
+          <div class="form-group"><label for="f-name">Name</label><input id="f-name" type="text" name="name" placeholder="Max Mustermann" autocomplete="name" required/></div>
+          <div class="form-group"><label for="f-email">E-Mail</label><input id="f-email" type="email" name="email" placeholder="max@beispiel.de" autocomplete="email" required/></div>
+          <div class="form-group"><label for="f-tel">Telefon (optional)</label><input id="f-tel" type="tel" name="telefon" placeholder="+49 ..." autocomplete="tel"/></div>
+          <div class="form-group"><label for="f-msg">Ihre Nachricht</label><textarea id="f-msg" name="message" placeholder="Beschreiben Sie kurz Ihr Projekt …" required></textarea></div>
           <button type="submit" class="btn-submit">Anfrage senden</button>
+          <p class="form-hinweis">Ihre Angaben werden über den Dienst Formspree (USA) an uns übermittelt und nur zur Bearbeitung Ihrer Anfrage verwendet. Details in der <a href="datenschutz.html#kontaktformular">Datenschutzerklärung</a>.</p>
         </form>
         <div class="form-success" id="form-success">✓ Nachricht gesendet! Wir melden uns bald bei Ihnen.</div>
       </div>
@@ -390,11 +389,11 @@ footer p+p{margin-top:.5rem;}
 <!-- PROJECT OVERLAY -->
 <div class="overlay-base" id="overlay" onclick="if(event.target===this)closeOverlay()">
   <div id="overlay-inner">
-    <button class="ov-close" onclick="closeOverlay()">&#10005;</button>
+    <button class="ov-close" onclick="closeOverlay()" aria-label="Schließen">&#10005;</button>
     <div id="ov-slider-wrap">
       <div id="ov-track"></div>
-      <button class="ov-btn ov-prev" onclick="ovStep(-1)">&#8249;</button>
-      <button class="ov-btn ov-next" onclick="ovStep(1)">&#8250;</button>
+      <button class="ov-btn ov-prev" onclick="ovStep(-1)" aria-label="Vorheriges Bild">&#8249;</button>
+      <button class="ov-btn ov-next" onclick="ovStep(1)" aria-label="Nächstes Bild">&#8250;</button>
     </div>
     <div id="ov-dots"></div>
     <div id="ov-info">
@@ -405,50 +404,57 @@ footer p+p{margin-top:.5rem;}
   </div>
 </div>
 
-<!-- LEGAL OVERLAY -->
-<div class="overlay-base" id="legal-overlay" onclick="if(event.target===this)closeLegal()">
-  <div id="legal-inner">
-    <button class="legal-close" onclick="closeLegal()">&#10005;</button>
-    <div id="legal-content"></div>
-  </div>
-</div>
-
 <!-- FOOTER -->
 <footer>
   <p>© 2026 <span>JFB Landschaftsbau</span> · Klein Berssen, Niedersachsen · Alle Rechte vorbehalten</p>
   <p>
-    <a href="#" onclick="openLegal('impressum');return false;">Impressum</a>
+    <a href="impressum.html">Impressum</a>
     ·
-    <a href="#" onclick="openLegal('datenschutz');return false;">Datenschutzerklärung</a>
+    <a href="datenschutz.html">Datenschutzerklärung</a>
   </p>
 </footer>
 
 <script>
 // ── DATA ──
+// Bilder liegen je Projekt als <ordner>/<nr>.webp (groß) und <ordner>/klein/<nr>.webp (Vorschau)
 const projects=[
-  {folder:'muehlenbau',count:11,title:'Mühlenbau in Groß Stavern',desc:'Komplette Neugestaltung der historischen Mühle in Groß Stavern.',tag:'Landschaftsbau'},
+  {folder:'muehlenbau',count:10,title:'Mühlenbau in Groß Stavern',desc:'Komplette Neugestaltung der historischen Mühle in Groß Stavern.',tag:'Landschaftsbau'},
   {folder:'strassenbau',count:8,title:'Straßenbau in Haselünne',desc:'Sanierung der historischen Straße in der Altstadt von Haselünne.',tag:'Straßenbau'},
   {folder:'abbruch',count:8,title:'Abbruch in Meppen',desc:'Abbruch und Entsorgung eines Einfamilienhauses in Meppen.',tag:'Abbruch'}
 ];
+const imgList=(p,klein)=>Array.from({length:p.count},(_,i)=>`${p.folder}/${klein?'klein/':''}${i+1}.webp`);
+
+// ── SLIDER-HILFEN ──
+const curIdx=track=>Math.round(track.scrollLeft/track.offsetWidth);
+function goTo(track,idx){
+  const max=track.children.length-1;
+  idx=Math.max(0,Math.min(max,idx));
+  track.scrollTo({left:idx*track.offsetWidth,behavior:'smooth'});
+}
+
+// ── NAV-HÖHE (für mobiles Menü und Sprungziele) ──
+function setNavHeight(){
+  document.documentElement.style.setProperty('--nav-h',document.querySelector('nav').offsetHeight+'px');
+}
+window.addEventListener('resize',setNavHeight);
+window.addEventListener('load',setNavHeight);
 
 // ── BUILD PROJECT CARDS ──
 function buildCards(){
   const grid=document.getElementById('projekte-grid');
   projects.forEach((p,pi)=>{
-    const imgs=Array.from({length:p.count},(_,i)=>`${p.folder}/${i+1}.jpeg`);
-    const trackId=`track-${pi}`;
-    const dotsId=`dots-${pi}`;
+    const imgs=imgList(p,true);
     const card=document.createElement('div');
     card.className='projekt-card';
     card.innerHTML=`
       <div class="slider-wrap">
-        <div class="slider-track" id="${trackId}">
-          ${imgs.map(s=>`<img src="${s}" alt="${p.title}" loading="lazy"/>`).join('')}
+        <div class="slider-track">
+          ${imgs.map((s,i)=>`<img src="${s}" alt="${p.title} – Bild ${i+1} von ${p.count}" loading="lazy" width="600" height="800"/>`).join('')}
         </div>
-        <button class="slide-btn slide-prev" aria-label="Zurück">&#8249;</button>
-        <button class="slide-btn slide-next" aria-label="Vor">&#8250;</button>
-        <div class="slide-dots" id="${dotsId}">
-          ${imgs.map((_,i)=>`<div class="slide-dot${i===0?' active':''}"></div>`).join('')}
+        <button class="slide-btn slide-prev" aria-label="Vorheriges Bild">&#8249;</button>
+        <button class="slide-btn slide-next" aria-label="Nächstes Bild">&#8250;</button>
+        <div class="slide-dots">
+          ${imgs.map((_,i)=>`<button type="button" class="slide-dot${i===0?' active':''}" aria-label="Bild ${i+1} anzeigen"></button>`).join('')}
         </div>
       </div>
       <div class="projekt-info">
@@ -456,75 +462,70 @@ function buildCards(){
         <p>${p.desc}</p>
         <span class="projekt-tag">${p.tag}</span>
       </div>`;
-    // Scroll-based dot sync
-    const track=card.querySelector(`#${trackId}`);
-    const dots=card.querySelectorAll(`#${dotsId} .slide-dot`);
+    const track=card.querySelector('.slider-track');
+    const dots=card.querySelectorAll('.slide-dot');
+    // Punkte beim Wischen mitführen
     track.addEventListener('scroll',()=>{
-      const idx=Math.round(track.scrollLeft/track.offsetWidth);
+      const idx=curIdx(track);
       dots.forEach((d,i)=>d.classList.toggle('active',i===idx));
     },{passive:true});
-    // Buttons
-    card.querySelector('.slide-prev').addEventListener('click',e=>{
-      e.stopPropagation();
-      const idx=Math.round(track.scrollLeft/track.offsetWidth);
-      track.scrollTo({left:(idx-1)*track.offsetWidth,behavior:'smooth'});
-    });
-    card.querySelector('.slide-next').addEventListener('click',e=>{
-      e.stopPropagation();
-      const idx=Math.round(track.scrollLeft/track.offsetWidth);
-      track.scrollTo({left:(idx+1)*track.offsetWidth,behavior:'smooth'});
-    });
-    // Open overlay
-    card.addEventListener('click',()=>openOverlay(pi));
+    // Pfeile
+    card.querySelector('.slide-prev').addEventListener('click',e=>{e.stopPropagation();goTo(track,curIdx(track)-1);});
+    card.querySelector('.slide-next').addEventListener('click',e=>{e.stopPropagation();goTo(track,curIdx(track)+1);});
+    // Punkte anklickbar
+    dots.forEach((d,i)=>d.addEventListener('click',e=>{e.stopPropagation();goTo(track,i);}));
+    // Großansicht öffnen – beim aktuell sichtbaren Bild
+    card.addEventListener('click',()=>openOverlay(pi,curIdx(track)));
     grid.appendChild(card);
   });
 }
 
 // ── PROJECT OVERLAY ──
 let ovProject=null;
-function openOverlay(pi){
+function openOverlay(pi,start=0){
   ovProject=projects[pi];
-  const imgs=Array.from({length:ovProject.count},(_,i)=>`${ovProject.folder}/${i+1}.jpeg`);
+  const imgs=imgList(ovProject,false);
   const track=document.getElementById('ov-track');
-  track.innerHTML=imgs.map(s=>`<img src="${s}" alt="${ovProject.title}"/>`).join('');
-  track.scrollTo({left:0,behavior:'instant'});
+  track.innerHTML=imgs.map((s,i)=>`<img src="${s}" alt="${ovProject.title} – Bild ${i+1} von ${ovProject.count}" width="1200" height="1600"/>`).join('');
   document.getElementById('ov-title').textContent=ovProject.title;
   document.getElementById('ov-desc').textContent=ovProject.desc;
   document.getElementById('ov-tag').textContent=ovProject.tag;
   const dots=document.getElementById('ov-dots');
-  dots.innerHTML=imgs.map((_,i)=>`<span class="${i===0?'active':''}"></span>`).join('');
+  dots.innerHTML=imgs.map((_,i)=>`<button type="button" class="${i===start?'active':''}" aria-label="Bild ${i+1} anzeigen"></button>`).join('');
+  dots.querySelectorAll('button').forEach((d,i)=>d.addEventListener('click',()=>goTo(track,i)));
   track.addEventListener('scroll',syncOvDots,{passive:true});
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow='hidden';
+  track.scrollTo({left:start*track.offsetWidth,behavior:'instant'});
 }
 function syncOvDots(){
-  const track=document.getElementById('ov-track');
-  const idx=Math.round(track.scrollLeft/track.offsetWidth);
-  document.querySelectorAll('#ov-dots span').forEach((d,i)=>d.classList.toggle('active',i===idx));
+  const idx=curIdx(document.getElementById('ov-track'));
+  document.querySelectorAll('#ov-dots button').forEach((d,i)=>d.classList.toggle('active',i===idx));
 }
 function ovStep(dir){
   const track=document.getElementById('ov-track');
-  const idx=Math.round(track.scrollLeft/track.offsetWidth);
-  track.scrollTo({left:(idx+dir)*track.offsetWidth,behavior:'smooth'});
+  goTo(track,curIdx(track)+dir);
 }
 function closeOverlay(){
-  const track=document.getElementById('ov-track');
-  track.removeEventListener('scroll',syncOvDots);
+  document.getElementById('ov-track').removeEventListener('scroll',syncOvDots);
   document.getElementById('overlay').classList.remove('open');
   document.body.style.overflow='';
 }
 
 // ── MOBILE MENU ──
 function toggleMenu(){
+  setNavHeight();
   const m=document.getElementById('mobileMenu');
   const open=m.classList.toggle('open');
   document.getElementById('icon-menu').style.display=open?'none':'block';
   document.getElementById('icon-close').style.display=open?'block':'none';
+  document.querySelector('.nav-toggle').setAttribute('aria-expanded',open);
 }
 function closeMenu(){
   document.getElementById('mobileMenu').classList.remove('open');
   document.getElementById('icon-menu').style.display='block';
   document.getElementById('icon-close').style.display='none';
+  document.querySelector('.nav-toggle').setAttribute('aria-expanded','false');
 }
 
 // ── FORMSPREE ──
@@ -539,59 +540,8 @@ document.getElementById('kontakt-form').addEventListener('submit',async function
   }catch{btn.textContent='Fehler – bitte erneut versuchen';btn.disabled=false;}
 });
 
-// ── LEGAL ──
-const legalTexts={
-  impressum:`<h2>Impressum</h2>
-    <h3>Angaben gemäß § 5 TMG</h3>
-    <p>JFB Landschaftsbau · Johannes Ficker<br>Am Brink 1<br>49777 Klein Berssen<br>Niedersachsen, Deutschland</p>
-    <h3>Kontakt</h3>
-    <p>Telefon: <a href="tel:+4916091847701">+49 (0) 160 91847701</a><br>E-Mail: <a href="mailto:info@jfb-landschaftsbau.de">info@jfb-landschaftsbau.de</a></p>
-    <h3>Umsatzsteuer-ID</h3>
-    <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE324026630</p>
-    <h3>Berufsbezeichnung</h3>
-    <p>Garten- und Landschaftsbauer<br>Handwerkskammer Osnabrück – Emsland – Grafschaft Bentheim</p>
-    <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
-    <p>Johannes Ficker, Am Brink 1, 49777 Klein Berssen</p>
-    <h3>Haftung für Inhalte</h3>
-    <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte verantwortlich. Nach §§ 8–10 TMG sind wir nicht verpflichtet, fremde Informationen zu überwachen.</p>
-    <h3>Haftung für Links</h3>
-    <p>Für Inhalte verlinkter Seiten ist stets der jeweilige Anbieter verantwortlich.</p>
-    <h3>Urheberrecht</h3>
-    <p>Die Inhalte dieser Seite unterliegen dem deutschen Urheberrecht. Vervielfältigung oder Verbreitung ohne Zustimmung des Erstellers ist unzulässig.</p>`,
-  datenschutz:`<h2>Datenschutzerklärung</h2>
-    <h3>1. Verantwortlicher</h3>
-    <p>Johannes Ficker · JFB Landschaftsbau, Am Brink 1, 49777 Klein Berssen<br>E-Mail: <a href="mailto:info@jfb-landschaftsbau.de">info@jfb-landschaftsbau.de</a></p>
-    <h3>2. Hosting – GitHub Pages</h3>
-    <p>Diese Website wird über GitHub Pages (GitHub Inc., San Francisco, USA) gehostet. GitHub speichert Zugriffsdaten (IP-Adresse, Browsertyp, Datum/Uhrzeit) in Server-Logfiles. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO. Weitere Infos: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank">GitHub Privacy Statement</a>.</p>
-    <h3>3. Kontaktformular (Formspree)</h3>
-    <p>Nachrichten werden über Formspree (Formspree Inc., USA) übermittelt. Daten: Name, E-Mail, Telefon (optional), Nachricht. Nur zur Bearbeitung Ihrer Anfrage verwendet. Rechtsgrundlage: Art. 6 Abs. 1 lit. b und f DSGVO. <a href="https://formspree.io/legal/privacy-policy" target="_blank">Datenschutz Formspree</a>.</p>
-    <h3>4. Externe Dienste</h3>
-    <ul>
-      <li><strong>Google Maps:</strong> Weiterleitung beim Klick auf den Standort. <a href="https://policies.google.com/privacy" target="_blank">Datenschutz Google</a></li>
-      <li><strong>WhatsApp:</strong> Weiterleitung beim Klick auf den WhatsApp-Button. <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank">Datenschutz WhatsApp</a></li>
-      <li><strong>Instagram:</strong> Verlinkung auf das Profil. <a href="https://privacycenter.instagram.com/policy" target="_blank">Datenschutz Instagram</a></li>
-    </ul>
-    <p>Es sind keine Social-Media-Plugins eingebunden, die ohne Klick Daten übertragen.</p>
-    <h3>5. Ihre Rechte</h3>
-    <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung und Datenübertragbarkeit (Art. 15–20 DSGVO). Beschwerden an: Landesbeauftragte für Datenschutz Niedersachsen.</p>
-    <h3>6. Cookies</h3>
-    <p>Diese Website setzt keine eigenen Cookies ein.</p>
-    <h3>7. Stand</h3>
-    <p>Oktober 2026</p>`
-};
-function openLegal(t){
-  document.getElementById('legal-content').innerHTML=legalTexts[t];
-  document.getElementById('legal-overlay').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeLegal(){
-  document.getElementById('legal-overlay').classList.remove('open');
-  document.body.style.overflow='';
-}
-
 // ── KEYBOARD ──
 document.addEventListener('keydown',e=>{
-  if(document.getElementById('legal-overlay').classList.contains('open')&&e.key==='Escape'){closeLegal();return;}
   if(document.getElementById('overlay').classList.contains('open')){
     if(e.key==='Escape')closeOverlay();
     if(e.key==='ArrowLeft')ovStep(-1);
@@ -600,6 +550,7 @@ document.addEventListener('keydown',e=>{
 });
 
 // ── INIT ──
+setNavHeight();
 buildCards();
 </script>
 </body>
