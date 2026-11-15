@@ -88,12 +88,14 @@ nav{
   border-bottom:1px solid #1a1a1a;
 }
 .nav-logo{display:flex;align-items:center;gap:.6rem;min-width:0;}
+nav{gap:.75rem;}
 .nav-logo img{height:48px;width:48px;flex-shrink:0;}
 .nav-logo span{color:#fff;font-family:'Edo',sans-serif;font-size:1.2rem;letter-spacing:.04em;white-space:nowrap;}
 .nav-links{display:flex;gap:1.5rem;flex-shrink:0;}
 .nav-links a{color:#ccc;font-size:.85rem;letter-spacing:.03em;transition:color .2s;}
 .nav-links a:hover{color:var(--green-light);}
-.nav-toggle{display:none;background:none;border:1px solid #333;border-radius:.3rem;padding:.55rem .65rem;cursor:pointer;color:#fff;flex-shrink:0;}
+.nav-toggle{display:none;background:none;border:1px solid #333;border-radius:.4rem;width:46px;height:46px;padding:0;cursor:pointer;color:#fff;flex-shrink:0;}
+.nav-toggle svg{margin:auto;}
 .nav-toggle svg{display:block;}
 .nav-toggle .icon-close{display:none;}
 .nav-toggle[aria-expanded="true"] .icon-menu{display:none;}
@@ -120,10 +122,12 @@ h2{font-size:clamp(1.5rem,5vw,2.4rem);font-weight:700;line-height:1.2;margin-bot
 }
 #hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 60%,rgba(74,124,47,.18) 0%,transparent 70%);}
 .hero-content{position:relative;z-index:1;max-width:680px;width:100%;}
-.hero-badge{display:inline-block;background:rgba(74,124,47,.2);border:1px solid rgba(106,171,63,.35);color:var(--green-light);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:.35rem 1rem;border-radius:2rem;margin-bottom:1.25rem;}
+.hero-badge{display:inline-block;background:rgba(74,124,47,.2);border:1px solid rgba(106,171,63,.35);color:var(--green-light);font-size:.8125rem;letter-spacing:.1em;text-transform:uppercase;padding:.4rem 1.1rem;border-radius:2rem;margin-bottom:1.25rem;}
+.hero-badge span{white-space:nowrap;}
+.nw{white-space:nowrap;}
 h1{font-size:clamp(2rem,7vw,3.8rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:1rem;}
-h1 span{color:var(--green-light);}
-.hero-sub{font-size:clamp(.95rem,3vw,1.1rem);color:#aaa;line-height:1.7;margin-bottom:2rem;max-width:520px;margin-left:auto;margin-right:auto;}
+h1 .gruen{color:var(--green-light);}
+.hero-sub{text-wrap:pretty;font-size:clamp(1rem,3vw,1.15rem);color:#aaa;line-height:1.7;margin-bottom:2rem;max-width:520px;margin-left:auto;margin-right:auto;}
 .hero-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;}
 .btn{display:inline-block;padding:.85rem 1.75rem;border-radius:.25rem;font-size:.9rem;font-weight:600;letter-spacing:.04em;cursor:pointer;transition:all .2s;text-align:center;}
 .btn-green{background:var(--green);color:#fff;border:2px solid var(--green);}
@@ -319,13 +323,15 @@ footer p+p{margin-top:.5rem;}
   .ueber-visual{min-height:200px;}
   .leistungen-grid{grid-template-columns:1fr;}
   .kontakt-wrap{grid-template-columns:1fr;gap:2.5rem;}
-  .hero-btns .btn-outline{display:none;}
   #ov-track img{height:min(62svh,700px);}
 
   /* größere Schrift: Fließtext mindestens 16px */
   .section-label{font-size:.875rem;}
   h2{font-size:clamp(1.75rem,7.5vw,2.4rem);}
-  .hero-badge{font-size:.875rem;line-height:1.6;}
+  nav{padding:.6rem 1.25rem;}
+  #hero{padding:6.25rem 1.25rem 3rem;}
+  .hero-badge{font-size:.9375rem;line-height:1.5;text-transform:none;letter-spacing:.02em;padding:.45rem 1.1rem;border-radius:1.25rem;}
+  h1{margin-bottom:1.1rem;}
   .hero-sub{font-size:1.1875rem;line-height:1.65;}
   .btn{font-size:1.125rem;padding:1rem 2rem;}
   .ueber-text p{font-size:1.125rem;line-height:1.7;}
@@ -363,10 +369,25 @@ footer p+p{margin-top:.5rem;}
   #ov-info p{font-size:1.0625rem;}
   #ov-count{font-size:.9375rem;}
 }
+@media(min-width:561px) and (max-width:1023px){
+  #hero{min-height:min(100svh,760px);}
+}
+@media(max-width:560px){
+  .hero-btns .btn-outline{display:none;}
+  .hero-badge .sep{display:none;}
+  .hero-badge span{display:block;}
+}
 @media(max-width:480px){
-  .nav-logo span{font-size:1.05rem;}
+  .nav-logo span{font-size:clamp(.875rem,4.4vw,1.1rem);}
   .nav-logo img{height:44px;width:44px;}
-  h1{font-size:clamp(2.1rem,10vw,2.6rem);}
+  h1{font-size:clamp(1.9rem,9.5vw,2.6rem);}
+}
+@media(max-width:360px){
+  nav{padding:.55rem 1rem;}
+  .nav-logo{gap:.45rem;}
+  .nav-logo img{height:40px;width:40px;}
+  #hero{padding:5.75rem 1rem 2.5rem;}
+  .hero-sub{font-size:1.0625rem;margin-bottom:1.5rem;}
 }
 </style>
 </head>
@@ -400,8 +421,8 @@ footer p+p{margin-top:.5rem;}
 <!-- HERO -->
 <section id="hero">
   <div class="hero-content">
-    <div class="hero-badge">Landschaftsbau · Straßenbau · Erdbau · Abbruch</div>
-    <h1>Wir gestalten.<br><span>Wir bauen. Wir bewegen.</span></h1>
+    <div class="hero-badge"><span>Landschaftsbau · Straßenbau</span><span class="sep" aria-hidden="true"> · </span><span>Erdbau · Abbruch</span></div>
+    <h1><span class="nw">Wir gestalten.</span><br><span class="gruen"><span class="nw">Wir bauen.</span> <span class="nw">Wir bewegen.</span></span></h1>
     <p class="hero-sub">JFB Landschaftsbau steht für handwerkliche Qualität und zuverlässige Ausführung – von der Gartengestaltung bis zum Straßen- und Tiefbau.</p>
     <div class="hero-btns">
       <a href="#kontakt" class="btn btn-green">Projekt anfragen</a>
