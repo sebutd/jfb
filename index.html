@@ -68,10 +68,10 @@
 :root{
   --black:#000;--dark:#111;--dark2:#1a1a1a;
   --green:#4a7c2f;--green-light:#6aab3f;--green-pale:#eaf3de;--green-text:#3b6524;
-  --muted:#999;
+  --muted:#aaa;
   --white:#f5f4f0;
 }
-html{font-size:16px;scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h,81px) + 8px);scrollbar-gutter:stable;}
+html{font-size:100%;-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h,81px) + 8px);scrollbar-gutter:stable;}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition:none!important;}}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;color:#111;overflow-x:hidden;}
 body:has(dialog[open]){overflow:hidden;}
@@ -323,44 +323,45 @@ footer p+p{margin-top:.5rem;}
   #ov-track img{height:min(62svh,700px);}
 
   /* größere Schrift: Fließtext mindestens 16px */
-  .section-label{font-size:.82rem;}
+  .section-label{font-size:.875rem;}
   h2{font-size:clamp(1.75rem,7.5vw,2.4rem);}
-  .hero-badge{font-size:.8rem;line-height:1.6;}
-  .hero-sub{font-size:1.1rem;}
-  .btn{font-size:1.05rem;padding:1rem 2rem;}
-  .ueber-text p{font-size:1.05rem;}
-  .ueber-visual p{font-size:.95rem;}
+  .hero-badge{font-size:.875rem;line-height:1.6;}
+  .hero-sub{font-size:1.1875rem;line-height:1.65;}
+  .btn{font-size:1.125rem;padding:1rem 2rem;}
+  .ueber-text p{font-size:1.125rem;line-height:1.7;}
+  .ueber-visual p{font-size:1rem;}
   .leistung-card{padding:1.5rem;}
   .leistung-icon{width:48px;height:48px;}
-  .leistung-card h3{font-size:1.15rem;margin-bottom:.5rem;}
-  .leistung-card p{font-size:1rem;line-height:1.65;}
+  .leistung-card h3{font-size:1.25rem;margin-bottom:.5rem;}
+  .leistung-card p{font-size:1.0625rem;line-height:1.65;color:#bbb;}
   .projekt-info{padding:1.25rem 1.25rem 1.4rem;gap:.4rem;}
-  .projekt-info h3{font-size:1.15rem;}
-  .projekt-info p{font-size:1rem;}
-  .projekt-tag{font-size:.85rem;padding:.25rem .8rem;}
-  .projekt-open{font-size:1rem;min-height:44px;}
+  .projekt-info h3{font-size:1.25rem;}
+  .projekt-info p{font-size:1.0625rem;color:#444;}
+  .projekt-tag{font-size:.875rem;padding:.3rem .85rem;}
+  .projekt-open{font-size:1.0625rem;min-height:44px;}
   .slide-btn{width:44px;height:44px;font-size:1.5rem;}
   .dots button{width:28px;height:28px;}
   .dots button::before{width:9px;height:9px;}
-  .kontakt-info p{font-size:1.05rem;}
+  .kontakt-info p{font-size:1.125rem;line-height:1.7;}
   .kontakt-detail{margin-bottom:1.1rem;}
   .kontakt-detail-icon{width:44px;height:44px;min-width:44px;}
-  .kontakt-detail-text span{font-size:.88rem;}
-  .kontakt-detail-text strong,.kontakt-detail-text a{font-size:1.05rem;}
-  .social-btn{font-size:1rem;padding:.8rem 1.2rem;}
+  .kontakt-detail-text span{font-size:.9375rem;}
+  .kontakt-detail-text strong,.kontakt-detail-text a{font-size:1.125rem;}
+  .kontakt-detail-text a{display:inline-block;padding:.4rem 0;margin:-.4rem 0;}
+  .social-btn{font-size:1.0625rem;padding:.85rem 1.25rem;}
   .form-group{margin-bottom:1.1rem;}
-  .form-group label{font-size:.95rem;}
-  .form-group input,.form-group textarea{padding:.85rem 1rem;font-size:1.05rem;}
+  .form-group label{font-size:1rem;}
+  .form-group input,.form-group textarea{padding:.9rem 1rem;font-size:1.0625rem;}
   .form-group textarea{height:140px;}
-  .btn-submit{font-size:1.05rem;padding:1rem;}
-  .form-hinweis{font-size:.88rem;}
-  .form-status{font-size:1rem;}
-  .mobile-menu a{font-size:1.15rem;padding:1.1rem 1.5rem;}
-  footer{font-size:.92rem;}
+  .btn-submit{font-size:1.125rem;padding:1.05rem;}
+  .form-hinweis{font-size:.9375rem;}
+  .form-status{font-size:1.0625rem;}
+  .mobile-menu a{font-size:1.2rem;padding:1.1rem 1.5rem;}
+  footer{font-size:1rem;line-height:1.6;}
   footer a{padding:.5rem 0;}
   #ov-info h3{font-size:1.2rem;}
-  #ov-info p{font-size:1rem;}
-  #ov-count{font-size:.9rem;}
+  #ov-info p{font-size:1.0625rem;}
+  #ov-count{font-size:.9375rem;}
 }
 @media(max-width:480px){
   .nav-logo span{font-size:1.05rem;}

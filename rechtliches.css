@@ -2,7 +2,7 @@
 @font-face{font-family:'Edo';src:url('fonts/edo.woff2') format('woff2');font-display:swap;}
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{--green:#4a7c2f;--green-light:#6aab3f;}
-html{font-size:16px;scroll-behavior:smooth;scroll-padding-top:96px;}
+html{font-size:100%;-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:96px;}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#111;color:#aaa;}
 :focus-visible{outline:2px solid var(--green-light);outline-offset:2px;}
@@ -11,7 +11,7 @@ nav{position:sticky;top:0;background:#000;border-bottom:1px solid #1a1a1a;paddin
 .nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;min-width:0;}
 .nav-logo img{height:48px;width:auto;flex-shrink:0;}
 .nav-logo span{color:#fff;font-family:'Edo',sans-serif;font-size:1.2rem;letter-spacing:.04em;white-space:nowrap;}
-.zurueck{color:#ccc;font-size:.85rem;text-decoration:none;white-space:nowrap;}
+.zurueck{color:#ccc;font-size:.85rem;text-decoration:none;white-space:nowrap;display:inline-block;padding:.65rem 0;}
 .zurueck:hover{color:var(--green-light);}
 main{max-width:760px;margin:0 auto;padding:3rem 1.5rem 4rem;}
 h1{color:#fff;font-size:clamp(1.6rem,5vw,2.2rem);margin-bottom:1.5rem;}
@@ -31,9 +31,9 @@ footer a:hover{color:var(--green-light);}
   main{padding:2rem 1.25rem 3rem;}
 }
 @media(max-width:768px){
-  p,li{font-size:1.02rem;}
+  p,li{font-size:1.0625rem;line-height:1.75;}
   h2{font-size:1.2rem;}
-  footer{font-size:.92rem;}
+  footer{font-size:1rem;}
   footer a{padding:.5rem 0;}
   .zurueck{font-size:.95rem;}
 }
