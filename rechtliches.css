@@ -28,6 +28,13 @@ footer a:hover{color:var(--green-light);}
 @media(max-width:480px){
   .nav-logo span{font-size:1rem;}
   .nav-logo img{height:40px;}
-  main{padding:2rem 1rem 3rem;}
+  main{padding:2rem 1.25rem 3rem;}
+}
+@media(max-width:768px){
+  p,li{font-size:1.02rem;}
+  h2{font-size:1.2rem;}
+  footer{font-size:.92rem;}
+  footer a{padding:.5rem 0;}
+  .zurueck{font-size:.95rem;}
 }
 @media(max-width:380px){.nav-logo span{display:none;}}
