@@ -2,7 +2,7 @@
   "name": "JFB Landschaftsbau",
   "short_name": "JFB",
   "lang": "de",
-  "start_url": "/",
+  "start_url": "./",
   "display": "browser",
   "background_color": "#000000",
   "theme_color": "#000000",

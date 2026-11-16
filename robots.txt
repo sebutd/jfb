@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jfb-landschaftsbau.de/sitemap.xml
+Sitemap: https://sebutd.github.io/jfb/sitemap.xml
