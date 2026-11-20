@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="robots" content="noindex"/>
+<!-- Archiv: alte Startseite bis November 2026 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>JFB Landschaftsbau – Landschaftsbau, Straßenbau, Erdbau &amp; Abbruch im Emsland</title>
+<meta name="description" content="JFB Landschaftsbau aus Klein Berssen (Emsland): Garten- und Landschaftsbau, Straßen- und Tiefbau, Erdbau und Abbruch – zuverlässig, sauber und termingerecht."/>
+<meta name="theme-color" content="#000000"/>
+
+<!-- Vorschau beim Teilen (WhatsApp, Facebook, LinkedIn …) -->
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="de_DE"/>
+<meta property="og:site_name" content="JFB Landschaftsbau"/>
+<meta property="og:title" content="JFB Landschaftsbau – Wir gestalten. Wir bauen. Wir bewegen."/>
+<meta property="og:description" content="Landschaftsbau, Straßen- und Tiefbau, Erdbau und Abbruch aus Klein Berssen im Emsland."/>
+<meta property="og:url" content="https://sebutd.github.io/jfb/"/>
+<meta property="og:image" content="https://sebutd.github.io/jfb/og-image.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Logo von JFB Landschaftsbau neben einer Straßenbaustelle"/>
+<meta name="twitter:card" content="summary_large_image"/>
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../icons/favicon-32.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="../../icons/icon-192.png"/>
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png"/>
+<link rel="manifest" href="../../site.webmanifest"/>
+<link rel="preload" href="../../fonts/edo.woff2" as="font" type="font/woff2" crossorigin/>
+
+<!-- Strukturierte Daten für Google (lokales Unternehmen) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "JFB Landschaftsbau",
+  "url": "https://sebutd.github.io/jfb/",
+  "logo": "https://sebutd.github.io/jfb/icons/icon-512.png",
+  "image": "https://sebutd.github.io/jfb/og-image.jpg",
+  "description": "Garten- und Landschaftsbau, Straßen- und Tiefbau, Erdbau und Abbruch aus Klein Berssen im Emsland.",
+  "telephone": "+49 160 91847701",
+  "email": "info@jfb-landschaftsbau.de",
+  "foundingDate": "2020",
+  "founder": {"@type": "Person", "name": "Johannes Ficker"},
+  "vatID": "DE324026630",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Am Brink 1",
+    "postalCode": "49777",
+    "addressLocality": "Klein Berssen",
+    "addressRegion": "Niedersachsen",
+    "addressCountry": "DE"
+  },
+  "areaServed": "Emsland",
+  "sameAs": ["https://www.instagram.com/jfb_landschaftsbau"],
+  "makesOffer": [
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Garten- und Landschaftsbau"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Straßen- und Tiefbau"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Erdbau"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Abbruch"}}
+  ]
+}
+</script>
+
+<style>
+/* Schrift lokal gehostet – keine Verbindung zu Drittanbietern */
+@font-face{font-family:'Edo';src:url('../../fonts/edo.woff2') format('woff2');font-display:swap;}
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --black:#000;--dark:#111;--dark2:#1a1a1a;
+  --green:#4a7c2f;--green-light:#6aab3f;--green-pale:#eaf3de;--green-text:#3b6524;
+  --muted:#aaa;
+  --white:#f5f4f0;
+}
+html{font-size:100%;-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h,81px) + 8px);scrollbar-gutter:stable;}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition:none!important;}}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;color:#111;overflow-x:hidden;overflow-wrap:break-word;}
+p,li,h3{hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:10 4 4;}
+/* Sprunglink für Tastaturnutzer */
+.skip{position:absolute;left:1rem;top:-100px;z-index:200;background:var(--green);color:#fff;padding:.75rem 1.25rem;border-radius:.35rem;font-weight:600;}
+.skip:focus{top:.75rem;}
+body:has(dialog[open]){overflow:hidden;}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+:focus-visible{outline:2px solid var(--green-light);outline-offset:2px;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;width:100%;
+  background:#000;
+  z-index:100;padding:1rem 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid #1a1a1a;
+}
+.nav-logo{display:flex;align-items:center;gap:.6rem;min-width:0;}
+nav{gap:.75rem;}
+.nav-logo img{height:48px;width:48px;flex-shrink:0;}
+.nav-logo span{color:#fff;font-family:'Edo',sans-serif;font-size:19px;letter-spacing:.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}
+.nav-links{display:flex;gap:1.5rem;flex-shrink:0;}
+.nav-links a{color:#ccc;font-size:.85rem;letter-spacing:.03em;transition:color .2s;}
+.nav-links a:hover{color:var(--green-light);}
+.nav-toggle{display:none;background:none;border:1px solid #333;border-radius:.4rem;width:46px;height:46px;padding:0;cursor:pointer;color:#fff;flex-shrink:0;}
+.nav-toggle svg{margin:auto;}
+.nav-toggle svg{display:block;}
+.nav-toggle .icon-close{display:none;}
+.nav-toggle[aria-expanded="true"] .icon-menu{display:none;}
+.nav-toggle[aria-expanded="true"] .icon-close{display:block;}
+.mobile-menu{display:none;position:fixed;top:var(--nav-h,81px);left:0;right:0;background:#000;border-bottom:1px solid #1a1a1a;z-index:99;flex-direction:column;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:#ccc;font-size:1rem;padding:1rem 1.5rem;border-bottom:1px solid #1a1a1a;transition:color .2s;}
+.mobile-menu a:hover{color:var(--green-light);}
+
+/* ── SECTIONS ── */
+section{padding:5rem 1.5rem;}
+.container{max-width:1000px;margin:0 auto;}
+.section-label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:.5rem;}
+h2{font-size:clamp(1.5rem,5vw,2.4rem);font-weight:700;line-height:1.2;margin-bottom:1.25rem;}
+.divider{width:48px;height:3px;background:var(--green);border-radius:2px;margin:.75rem 0 1.25rem;}
+
+/* ── HERO ── */
+#hero{
+  min-height:100svh;
+  background:linear-gradient(160deg,#000 55%,#0f1e0a 100%);
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:7rem 1.5rem 4rem;
+  position:relative;overflow:hidden;
+}
+#hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 60%,rgba(74,124,47,.18) 0%,transparent 70%);}
+.hero-content{position:relative;z-index:1;max-width:680px;width:100%;}
+.hero-badge{display:inline-block;background:rgba(74,124,47,.2);border:1px solid rgba(106,171,63,.35);color:var(--green-light);font-size:.8125rem;letter-spacing:.1em;text-transform:uppercase;padding:.4rem 1.1rem;border-radius:2rem;margin-bottom:1.25rem;}
+.hero-badge span{white-space:nowrap;}
+.nw{white-space:nowrap;}
+h1{font-size:min(clamp(2rem,7vw,3.8rem),12vw);font-weight:700;color:#fff;line-height:1.1;margin-bottom:1rem;}
+h1 .gruen{color:var(--green-light);}
+.hero-sub{text-wrap:pretty;font-size:clamp(1rem,3vw,1.15rem);color:#aaa;line-height:1.7;margin-bottom:2rem;max-width:520px;margin-left:auto;margin-right:auto;}
+.hero-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;}
+.btn{display:inline-block;padding:.85rem 1.75rem;border-radius:.25rem;font-size:.9rem;font-weight:600;letter-spacing:.04em;cursor:pointer;transition:all .2s;text-align:center;}
+.btn-green{background:var(--green);color:#fff;border:2px solid var(--green);}
+.btn-green:hover{background:var(--green-light);border-color:var(--green-light);}
+.btn-outline{background:transparent;color:#fff;border:2px solid #444;}
+.btn-outline:hover{border-color:#888;}
+
+/* ── ÜBER UNS ── */
+#ueber{background:#fff;}
+.ueber-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;}
+.ueber-text p{color:#444;line-height:1.8;margin-bottom:1rem;font-size:clamp(.9rem,2.5vw,1rem);}
+.ueber-visual{margin:0;border-radius:.75rem;overflow:hidden;background:var(--dark);aspect-ratio:4/3;}
+.ueber-visual img{width:100%;height:100%;object-fit:cover;}
+
+/* ── LEISTUNGEN ── */
+#leistungen{background:var(--dark);color:#fff;}
+#leistungen h2{color:#fff;}
+#leistungen .section-label{color:var(--green-light);}
+.leistungen-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem;}
+.leistung-card{background:#1a1a1a;border:1px solid #2e2e2e;border-radius:.5rem;padding:1.35rem;transition:border-color .2s;}
+.leistung-card:hover{border-color:var(--green);}
+.leistung-icon{width:42px;height:42px;background:rgba(74,124,47,.2);border-radius:.4rem;display:flex;align-items:center;justify-content:center;margin-bottom:.85rem;}
+.leistung-icon svg{stroke:var(--green-light);}
+.leistung-card h3{font-size:.95rem;font-weight:600;color:#fff;margin-bottom:.4rem;}
+.leistung-card p{font-size:.83rem;color:var(--muted);line-height:1.6;}
+
+/* ── PROJEKTE ── */
+#projekte{background:#fff;}
+.projekte-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;margin-top:1.5rem;}
+.projekt-card{border-radius:.5rem;overflow:hidden;border:1px solid #e0e0e0;cursor:pointer;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;}
+.projekt-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.1);}
+
+/* ── SLIDER (scroll-snap) ── */
+.slider-wrap{position:relative;aspect-ratio:4/5;overflow:hidden;background:#111;}
+.slider-track{
+  display:flex;
+  height:100%;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  overscroll-behavior-x:contain;
+  scrollbar-width:none;
+}
+.slider-track::-webkit-scrollbar{display:none;}
+.slider-track:focus-visible,#ov-track:focus-visible{outline-offset:-3px;}
+.slider-track img{
+  flex:0 0 100%;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  scroll-snap-align:start;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+.slide-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(0,0,0,.6);border:none;color:#fff;
+  width:40px;height:40px;border-radius:50%;
+  cursor:pointer;font-size:1.3rem;
+  display:flex;align-items:center;justify-content:center;
+  z-index:2;transition:background .2s;
+  -webkit-tap-highlight-color:transparent;
+}
+.slide-btn:hover{background:rgba(0,0,0,.9);}
+.slide-prev{left:8px;} .slide-next{right:8px;}
+
+/* Punkte: 24px Tippfläche, sichtbarer Punkt 8px */
+.dots{display:flex;justify-content:center;flex-wrap:wrap;}
+.dots button{width:24px;height:24px;background:none;border:none;padding:0;cursor:pointer;display:grid;place-items:center;-webkit-tap-highlight-color:transparent;}
+.dots button::before{content:'';width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.45);box-shadow:0 0 2px rgba(0,0,0,.6);transition:background .2s,transform .2s;}
+.dots button[aria-current="true"]::before{background:#fff;transform:scale(1.15);}
+.slider-wrap .dots{position:absolute;bottom:4px;left:0;right:0;padding:0 8px;}
+
+.projekt-info{padding:1.1rem 1.25rem 1.25rem;display:flex;flex-direction:column;align-items:flex-start;gap:.3rem;flex:1;}
+.projekt-info h3{font-size:.95rem;font-weight:600;}
+.projekt-info p{font-size:.82rem;color:#555;line-height:1.6;}
+.projekt-tag{display:inline-block;font-size:.72rem;background:var(--green-pale);color:var(--green-text);padding:.2rem .65rem;border-radius:1rem;margin-top:.3rem;font-weight:600;}
+.projekt-open{margin-top:auto;padding-top:.6rem;background:none;border:none;color:var(--green-text);font:inherit;font-size:.82rem;font-weight:600;cursor:pointer;min-height:24px;}
+.projekt-open:hover{text-decoration:underline;}
+
+/* ── KONTAKT ── */
+#kontakt{background:var(--dark);color:#fff;}
+#kontakt h2{color:#fff;}
+#kontakt .section-label{color:var(--green-light);}
+.kontakt-wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:start;margin-top:1.5rem;}
+.kontakt-info p{color:#aaa;line-height:1.8;margin-bottom:1.25rem;font-size:.9rem;}
+.kontakt-detail{display:flex;gap:.75rem;align-items:center;margin-bottom:.85rem;}
+a.kontakt-detail{transition:opacity .2s;}
+a.kontakt-detail:hover{opacity:.75;}
+.kontakt-detail-icon{width:36px;height:36px;min-width:36px;background:rgba(74,124,47,.2);border-radius:.35rem;display:flex;align-items:center;justify-content:center;}
+.kontakt-detail-icon svg{stroke:var(--green-light);}
+.kontakt-detail-text span{display:block;font-size:.72rem;color:var(--muted);}
+/* Grid-/Flex-Kinder dürfen schmaler werden; lange Adressen brechen notfalls um (große Systemschrift) */
+.kontakt-wrap>*,.ueber-grid>*,.leistungen-grid>*,.projekte-grid>*,.kontakt-detail-text{min-width:0;}
+.kontakt-detail-text a[href^="mailto"]{overflow-wrap:anywhere;}
+.hero-badge,.projekt-tag,.social-btn{max-width:100%;hyphens:auto;-webkit-hyphens:auto;}
+.social-btn{white-space:normal;}
+.kontakt-detail-text strong,.kontakt-detail-text a{font-size:.88rem;color:#ddd;font-weight:600;}
+.kontakt-detail-text a{transition:color .2s;}
+.kontakt-detail-text a:hover{color:var(--green-light);}
+.social-row{display:flex;gap:.75rem;margin-top:1.25rem;flex-wrap:wrap;}
+.social-btn{display:flex;align-items:center;gap:.5rem;background:#1a1a1a;border:1px solid #2e2e2e;border-radius:.35rem;padding:.6rem 1rem;color:#ddd;font-size:.85rem;font-weight:500;transition:border-color .2s;white-space:nowrap;}
+.social-wa:hover{border-color:#25D366;}
+.social-ig:hover{border-color:#E1306C;}
+.form-group{margin-bottom:.9rem;}
+.form-group label{display:block;font-size:.78rem;color:var(--muted);margin-bottom:.35rem;letter-spacing:.03em;}
+.form-group input,.form-group textarea{
+  width:100%;background:#1a1a1a;border:1px solid #2e2e2e;
+  border-radius:.35rem;padding:.7rem .9rem;
+  color:#fff;font-size:1rem;font-family:inherit;
+  transition:border-color .2s;outline:none;
+  -webkit-appearance:none;
+}
+.form-group input::placeholder,.form-group textarea::placeholder{color:#777;}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--green-light);}
+.form-group textarea{height:110px;resize:vertical;}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+.btn-submit{
+  width:100%;padding:.85rem;background:var(--green);color:#fff;
+  border:none;border-radius:.35rem;font-size:.9rem;font-weight:600;
+  letter-spacing:.04em;cursor:pointer;transition:background .2s;
+  -webkit-appearance:none;
+}
+.btn-submit:hover{background:var(--green-light);}
+.btn-submit:disabled{opacity:.7;cursor:wait;}
+.form-hinweis{font-size:.75rem;color:var(--muted);line-height:1.6;margin-top:.75rem;}
+.form-hinweis a{color:var(--green-light);text-decoration:underline;}
+.form-status:empty{display:none;}
+.form-status{border-radius:.35rem;padding:1rem;text-align:center;margin-top:1rem;font-size:.9rem;}
+.form-status.ok{background:rgba(74,124,47,.2);border:1px solid var(--green);color:#9adb6a;}
+.form-status.fehler{background:rgba(180,60,40,.15);border:1px solid #b44;color:#f2a191;}
+
+/* ── FOOTER ── */
+footer{background:#000;color:var(--muted);text-align:center;padding:1.75rem 1.5rem;font-size:.8rem;border-top:1px solid #1a1a1a;}
+footer .firma{color:var(--green-light);}
+footer a{color:var(--muted);text-decoration:none;margin:0 .4rem;transition:color .2s;display:inline-block;padding:.25rem 0;}
+footer a:hover{color:var(--green-light);}
+footer p+p{margin-top:.5rem;}
+
+/* ── GROSSANSICHT (natives <dialog>) ── */
+#overlay{
+  border:none;padding:0;background:#1a1a1a;color:#fff;
+  border-radius:.75rem;width:min(900px,calc(100% - 2rem));
+  max-width:none;max-height:calc(100svh - 2rem);margin:auto;
+  overflow:hidden;
+}
+#overlay[open]{display:flex;flex-direction:column;}
+#overlay::backdrop{background:rgba(0,0,0,.92);}
+#ov-slider-wrap{position:relative;flex-shrink:1;min-height:0;background:#000;}
+#ov-track{
+  display:flex;overflow-x:auto;height:100%;
+  scroll-snap-type:x mandatory;overscroll-behavior-x:contain;
+  scrollbar-width:none;
+}
+#ov-track::-webkit-scrollbar{display:none;}
+/* ganzes Foto zeigen (contain), schwarzer Rand statt Beschnitt */
+#ov-track img{flex:0 0 100%;width:100%;height:min(70svh,800px);object-fit:contain;scroll-snap-align:start;background:#000;}
+.ov-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.6);border:none;color:#fff;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:1.4rem;display:flex;align-items:center;justify-content:center;z-index:2;transition:background .2s;}
+.ov-btn:hover{background:#000;}
+.ov-prev{left:10px;}.ov-next{right:10px;}
+#ov-dots{padding:.35rem 0 0;}
+#ov-info{padding:.5rem 1.25rem 1.25rem;overflow-y:auto;}
+#ov-info h3{color:#fff;font-size:1.1rem;font-weight:600;margin-bottom:.35rem;}
+#ov-info p{color:#aaa;font-size:.88rem;line-height:1.6;}
+#ov-count{color:var(--muted);font-size:.78rem;margin-top:.5rem;}
+.ov-close{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.7);border:none;color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.05rem;display:flex;align-items:center;justify-content:center;z-index:3;}
+.ov-close:hover{background:#000;}
+
+/* ── RESPONSIVE ── */
+
+/* Desktop: breiter, kompakter, mehr auf einen Blick */
+@media(min-width:1024px){
+  .container{max-width:1200px;}
+  section{padding:4.5rem 2rem;}
+  #hero{min-height:min(100svh,720px);padding:8rem 2rem 4rem;}
+  .ueber-grid{grid-template-columns:1.3fr 1fr;gap:3.5rem;}
+  .ueber-text p{font-size:1.05rem;}
+  .leistungen-grid{grid-template-columns:repeat(4,1fr);gap:1.25rem;}
+  .leistung-card{padding:1.5rem;}
+  .leistung-card h3{font-size:1.05rem;}
+  .leistung-card p{font-size:.92rem;}
+  .projekte-grid{grid-template-columns:repeat(3,1fr);}
+  .slider-wrap{aspect-ratio:1/1;}
+  .projekt-info h3{font-size:1.05rem;}
+  .projekt-info p{font-size:.92rem;}
+  .kontakt-info p{font-size:1rem;}
+  .kontakt-detail-text span{font-size:.8rem;}
+  .kontakt-detail-text strong,.kontakt-detail-text a{font-size:.98rem;}
+  .form-group label{font-size:.85rem;}
+  .nav-links a{font-size:.95rem;}
+}
+
+/* Tablet und Handy */
+@media(max-width:768px){
+  section{padding:3.5rem 1.25rem;}
+  .nav-links{display:none;}
+  .nav-toggle{display:block;}
+  .ueber-grid{grid-template-columns:1fr;}
+  .leistungen-grid{grid-template-columns:1fr;}
+  .kontakt-wrap{grid-template-columns:1fr;gap:2.5rem;}
+  #ov-track img{height:min(62svh,700px);}
+
+  /* größere Schrift: Fließtext mindestens 16px */
+  .section-label{font-size:.875rem;}
+  h2{font-size:clamp(1.75rem,7.5vw,2.4rem);}
+  nav{padding:10px 20px;gap:12px;}
+  .nav-logo{gap:10px;}
+  html{scroll-padding-top:74px;}
+  .nav-logo img{transition:width .3s ease,height .3s ease;}
+  .nav-logo span{transition:font-size .3s ease;}
+  #hero{padding:6.25rem 1.25rem 3rem;}
+  .hero-badge{font-size:.9375rem;line-height:1.5;text-transform:none;letter-spacing:.02em;padding:.45rem 1.1rem;border-radius:1.25rem;}
+  h1{margin-bottom:1.1rem;}
+  .hero-sub{font-size:1.1875rem;line-height:1.65;}
+  .btn{font-size:1.125rem;padding:1rem 2rem;}
+  .ueber-text p{font-size:1.125rem;line-height:1.7;}
+  .leistung-card{padding:1.5rem;}
+  .leistung-icon{width:48px;height:48px;}
+  .leistung-card h3{font-size:1.25rem;margin-bottom:.5rem;}
+  .leistung-card p{font-size:1.0625rem;line-height:1.65;color:#bbb;}
+  .projekt-info{padding:1.25rem 1.25rem 1.4rem;gap:.4rem;}
+  .projekt-info h3{font-size:1.25rem;}
+  .projekt-info p{font-size:1.0625rem;color:#444;}
+  .projekt-tag{font-size:.875rem;padding:.3rem .85rem;}
+  .projekt-open{font-size:1.0625rem;min-height:44px;}
+  .slide-btn{width:44px;height:44px;font-size:1.5rem;}
+  .dots button{width:28px;height:28px;}
+  .dots button::before{width:9px;height:9px;}
+  .kontakt-info p{font-size:1.125rem;line-height:1.7;}
+  .kontakt-detail{margin-bottom:1.1rem;}
+  .kontakt-detail-icon{width:44px;height:44px;min-width:44px;}
+  .kontakt-detail-text span{font-size:.9375rem;}
+  .kontakt-detail-text strong,.kontakt-detail-text a{font-size:1.125rem;}
+  .kontakt-detail-text a{display:inline-block;padding:.4rem 0;margin:-.4rem 0;}
+  .social-btn{font-size:1.0625rem;padding:.85rem 1.25rem;}
+  .form-group{margin-bottom:1.1rem;}
+  .form-group label{font-size:1rem;}
+  .form-group input,.form-group textarea{padding:.9rem 1rem;font-size:1.0625rem;}
+  .form-group textarea{height:140px;}
+  .btn-submit{font-size:1.125rem;padding:1.05rem;}
+  .form-hinweis{font-size:.9375rem;}
+  .form-status{font-size:1.0625rem;}
+  .mobile-menu a{font-size:1.2rem;padding:1.1rem 1.5rem;}
+  footer{font-size:1rem;line-height:1.6;}
+  footer a{padding:.5rem 0;}
+  #ov-info h3{font-size:1.2rem;}
+  #ov-info p{font-size:1.0625rem;}
+  #ov-count{font-size:.9375rem;}
+}
+@media(min-width:561px) and (max-width:1023px){
+  #hero{min-height:min(100svh,760px);}
+}
+@media(max-width:560px){
+  .hero-btns .btn-outline{display:none;}
+  .hero-badge .sep{display:none;}
+  .hero-badge span{display:block;white-space:normal;}
+}
+@media(max-width:480px){
+  .nav-logo span{font-size:clamp(14px,4.4vw,18px);}
+  .nav-logo img{height:64px;width:64px;}
+  nav.klein .nav-logo img{height:44px;width:44px;}
+  h1{font-size:min(clamp(1.9rem,9.5vw,2.6rem),11vw);}
+}
+@media(max-width:360px){
+  nav{padding:9px 16px;}
+  .nav-logo{gap:7px;}
+  .nav-logo img{height:56px;width:56px;}
+  nav.klein .nav-logo img{height:40px;width:40px;}
+  #hero{padding:5.75rem 1rem 2.5rem;}
+  .hero-sub{font-size:1.0625rem;margin-bottom:1.5rem;}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero" aria-label="JFB Landschaftsbau – zum Seitenanfang">
+    <img src="../../icons/logo-96.png" srcset="../../icons/logo-96.png 96w, ../../icons/icon-192.png 192w" sizes="(max-width:768px) 64px, 48px" alt="" width="48" height="48"/>
+    <span>JFB Landschaftsbau</span>
+  </a>
+  <div class="nav-links">
+    <a href="#ueber">Über uns</a>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#projekte">Projekte</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+  <button class="nav-toggle" type="button" aria-label="Menü" aria-controls="mobileMenu" aria-expanded="false">
+    <svg class="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    <svg class="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#ueber">Über uns</a>
+  <a href="#leistungen">Leistungen</a>
+  <a href="#projekte">Projekte</a>
+  <a href="#kontakt">Kontakt</a>
+</div>
+
+<main id="main">
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-badge"><span>Landschaftsbau · Straßenbau</span><span class="sep" aria-hidden="true"> · </span><span>Erdbau · Abbruch</span></div>
+    <h1><span class="nw">Wir gestalten.</span><br><span class="gruen"><span class="nw">Wir bauen.</span> <span class="nw">Wir bewegen.</span></span></h1>
+    <p class="hero-sub">JFB Landschaftsbau steht für handwerkliche Qualität und zuverlässige Ausführung – von der Gartengestaltung bis zum Straßen- und Tiefbau.</p>
+    <div class="hero-btns">
+      <a href="#kontakt" class="btn btn-green">Projekt anfragen</a>
+      <a href="#projekte" class="btn btn-outline">Unsere Arbeiten</a>
+    </div>
+  </div>
+</section>
+
+<!-- ÜBER UNS -->
+<section id="ueber">
+  <div class="container">
+    <div class="ueber-grid">
+      <div class="ueber-text">
+        <div class="section-label">Über uns</div>
+        <h2>Mit Leidenschaft gebaut seit 2020</h2>
+        <div class="divider"></div>
+        <p>JFB Landschaftsbau wurde 2020 gegründet und ist seitdem stetig gewachsen. Mit einem engagierten und erfahrenen Team übernehmen wir Projekte rund um Landschaftsbau, Straßen- und Tiefbau, Erdbau sowie Abbrucharbeiten.</p>
+        <p>Egal ob privater Garten, öffentliche Verkehrsfläche oder industrielles Gelände – wir setzen jedes Projekt mit dem gleichen Anspruch um: sauber, zuverlässig und termingerecht.</p>
+      </div>
+      <figure class="ueber-visual">
+        <!-- Übergangsweise ein Projektfoto; später durch ein Teamfoto ersetzen -->
+        <img src="../../strassenbau/mittel/1.webp" srcset="../../strassenbau/klein/1.webp 600w, ../../strassenbau/mittel/1.webp 900w, ../../strassenbau/1.webp 1200w" sizes="(min-width:1024px) 480px, 100vw" alt="Baustelle von JFB Landschaftsbau: Straßensanierung in der Altstadt von Haselünne" width="900" height="1200" loading="lazy" decoding="async"/>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- LEISTUNGEN -->
+<section id="leistungen">
+  <div class="container">
+    <div class="section-label">Was wir tun</div>
+    <h2>Unsere Leistungen</h2>
+    <div class="leistungen-grid">
+      <div class="leistung-card">
+        <div class="leistung-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a9 9 0 0 1 9 9c0 5-9 13-9 13S3 16 3 11a9 9 0 0 1 9-9z"/><circle cx="12" cy="11" r="3"/></svg></div>
+        <h3>Landschaftsbau</h3>
+        <p>Individuelle Gestaltung von Außenanlagen – von der Gartenplanung über Bepflanzung bis hin zu Wegen, Terrassen und Pflasterarbeiten.</p>
+      </div>
+      <div class="leistung-card">
+        <div class="leistung-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+        <h3>Straßen- und Tiefbau</h3>
+        <p>Professionelle Ausführung von Straßenbaumaßnahmen, Kanalbauarbeiten und Tiefbauprojekten für private und öffentliche Auftraggeber.</p>
+      </div>
+      <div class="leistung-card">
+        <div class="leistung-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20M6 20V10l6-6 6 6v10"/><path d="M10 20v-5h4v5"/></svg></div>
+        <h3>Erdbau</h3>
+        <p>Erdarbeiten jeder Größenordnung – Aushub, Planierung, Geländemodellierung und Verfüllung mit modernen Maschinen und erfahrenem Personal.</p>
+      </div>
+      <div class="leistung-card">
+        <div class="leistung-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg></div>
+        <h3>Abbruch</h3>
+        <p>Kontrollierter Rückbau und fachgerechte Entsorgung von Gebäuden, Befestigungen und Bauwerken – sicher, sauber und umweltgerecht.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJEKTE -->
+<section id="projekte">
+  <div class="container">
+    <div class="section-label">Referenzen</div>
+    <h2>Ausgewählte Projekte</h2>
+    <div class="projekte-grid" id="projekte-grid"></div>
+    <noscript>
+      <div class="projekte-grid">
+        <article class="projekt-card"><img src="../../muehlenbau/mittel/1.webp" alt="Mühlenbau in Groß Stavern" width="900" height="1200" style="aspect-ratio:4/5;object-fit:cover;width:100%;height:auto"><div class="projekt-info"><h3>Mühlenbau in Groß Stavern</h3><p>Komplette Neugestaltung der historischen Mühle in Groß Stavern.</p></div></article>
+        <article class="projekt-card"><img src="../../strassenbau/mittel/1.webp" alt="Straßenbau in Haselünne" width="900" height="1200" style="aspect-ratio:4/5;object-fit:cover;width:100%;height:auto"><div class="projekt-info"><h3>Straßenbau in Haselünne</h3><p>Sanierung der historischen Straße in der Altstadt von Haselünne.</p></div></article>
+        <article class="projekt-card"><img src="../../abbruch/mittel/1.webp" alt="Abbruch in Meppen" width="900" height="1200" style="aspect-ratio:4/5;object-fit:cover;width:100%;height:auto"><div class="projekt-info"><h3>Abbruch in Meppen</h3><p>Abbruch und Entsorgung eines Einfamilienhauses in Meppen.</p></div></article>
+      </div>
+    </noscript>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+  <div class="container">
+    <div class="section-label">Kontakt</div>
+    <h2>Projekt anfragen</h2>
+    <div class="kontakt-wrap">
+      <div class="kontakt-info">
+        <p>Sie haben ein Projekt im Kopf? Wir beraten Sie gerne unverbindlich. Einfach Formular ausfüllen oder direkt anrufen.</p>
+        <div class="kontakt-detail">
+          <div class="kontakt-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.08 3.4 2 2 0 0 1 3.05 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92z"/></svg></div>
+          <div class="kontakt-detail-text"><span>Telefon</span><a href="tel:+4916091847701">+49 (0) 160 91847701</a></div>
+        </div>
+        <div class="kontakt-detail">
+          <div class="kontakt-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="kontakt-detail-text"><span>E-Mail</span><a href="mailto:info@jfb-landschaftsbau.de">info@jfb-landschaftsbau.de</a></div>
+        </div>
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Am+Brink+1,+49777+Klein+Berssen" target="_blank" rel="noopener" class="kontakt-detail">
+          <div class="kontakt-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6aab3f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="kontakt-detail-text"><span>Standort · Route in Google Maps</span><strong>Am Brink 1, 49777 Klein Berssen</strong></div>
+        </a>
+        <div class="social-row">
+          <a href="https://wa.me/4916091847701" target="_blank" rel="noopener" class="social-btn social-wa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href="https://www.instagram.com/jfb_landschaftsbau" target="_blank" rel="noopener" class="social-btn social-ig">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#E1306C" stroke="none"/></svg>
+            Instagram
+          </a>
+        </div>
+      </div>
+      <div>
+        <form id="kontakt-form" action="https://formspree.io/f/myeyqjrl" method="POST">
+          <div class="form-group"><label for="f-name">Name</label><input id="f-name" type="text" name="name" placeholder="Max Mustermann" autocomplete="name" required/></div>
+          <div class="form-group"><label for="f-email">E-Mail</label><input id="f-email" type="email" name="email" placeholder="max@beispiel.de" autocomplete="email" required/></div>
+          <div class="form-group"><label for="f-tel">Telefon (optional)</label><input id="f-tel" type="tel" name="telefon" placeholder="+49 ..." autocomplete="tel"/></div>
+          <div class="form-group"><label for="f-msg">Ihre Nachricht</label><textarea id="f-msg" name="message" placeholder="Beschreiben Sie kurz Ihr Projekt …" required></textarea></div>
+          <!-- Spam-Schutz: für Menschen unsichtbar, Bots füllen es aus -->
+          <div class="hp" aria-hidden="true"><label for="f-gotcha">Bitte leer lassen</label><input id="f-gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off"/></div>
+          <input type="hidden" name="_subject" value="Neue Anfrage über die Website"/>
+          <button type="submit" class="btn-submit">Anfrage senden</button>
+          <p class="form-hinweis">Ihre Angaben werden über den Dienst Formspree (USA) an uns übermittelt und nur zur Bearbeitung Ihrer Anfrage verwendet. Details in der <a href="../../datenschutz.html#kontaktformular">Datenschutzerklärung</a>.</p>
+        </form>
+        <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- GROSSANSICHT -->
+<dialog id="overlay" aria-labelledby="ov-title">
+  <button class="ov-close" type="button" aria-label="Großansicht schließen">&#10005;</button>
+  <div id="ov-slider-wrap">
+    <div id="ov-track" tabindex="0" role="region" aria-label="Bilder"></div>
+    <button class="ov-btn ov-prev" type="button" aria-label="Vorheriges Bild">&#8249;</button>
+    <button class="ov-btn ov-next" type="button" aria-label="Nächstes Bild">&#8250;</button>
+  </div>
+  <div class="dots" id="ov-dots"></div>
+  <div id="ov-info">
+    <h3 id="ov-title"></h3>
+    <p id="ov-desc"></p>
+    <span class="projekt-tag" id="ov-tag"></span>
+    <p id="ov-count" aria-live="polite"></p>
+  </div>
+</dialog>
+
+<!-- FOOTER -->
+<footer>
+  <p>© <span class="jahr">2026</span> <span class="firma">JFB Landschaftsbau</span> · Klein Berssen, Niedersachsen · Alle Rechte vorbehalten</p>
+  <p>
+    <a href="../../impressum.html">Impressum</a>
+    ·
+    <a href="../../datenschutz.html">Datenschutzerklärung</a>
+  </p>
+</footer>
+
+<script>
+// ── DATEN ──
+// Bilder je Projekt: <ordner>/<nr>.webp (1200×1600) und <ordner>/klein/<nr>.webp (600×800)
+const projects=[
+  {folder:'muehlenbau',count:10,title:'Mühlenbau in Groß Stavern',desc:'Komplette Neugestaltung der historischen Mühle in Groß Stavern.',tag:'Landschaftsbau'},
+  {folder:'strassenbau',count:8,title:'Straßenbau in Haselünne',desc:'Sanierung der historischen Straße in der Altstadt von Haselünne.',tag:'Straßenbau'},
+  {folder:'abbruch',count:8,title:'Abbruch in Meppen',desc:'Abbruch und Entsorgung eines Einfamilienhauses in Meppen.',tag:'Abbruch'}
+];
+// Größen: 'klein' 600×800, 'mittel' 900×1200, ohne Angabe 1200×1600
+const bild=(p,i,groesse)=>`../../${p.folder}/${groesse?groesse+'/':''}${i+1}.webp`;
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// ── SLIDER (gemeinsam für Karten und Großansicht) ──
+// Aktives Bild per IntersectionObserver statt Scroll-Berechnung (kein Layout-Ruckeln)
+function slider(track,dotsBox,count,label,onChange){
+  let aktiv=0;
+  dotsBox.innerHTML=Array.from({length:count},(_,i)=>
+    `<button type="button" tabindex="-1" aria-label="Bild ${i+1} von ${count}${label?' – '+esc(label):''}"${i===0?' aria-current="true"':''}></button>`).join('');
+  const dots=[...dotsBox.children];
+  const imgs=[...track.children];
+  // Bilder erst laden, wenn sie gebraucht werden (aktuelles + nächstes/vorheriges)
+  const lade=i=>{
+    const img=imgs[i]; if(!img||!img.dataset.src) return;
+    if(img.dataset.srcset) img.srcset=img.dataset.srcset;
+    img.src=img.dataset.src;
+    delete img.dataset.src; delete img.dataset.srcset;
+  };
+  const setze=i=>{
+    aktiv=i;
+    lade(i);lade(i+1);lade(i-1);
+    dots.forEach((d,j)=>{ if(j===i) d.setAttribute('aria-current','true'); else d.removeAttribute('aria-current'); });
+    onChange&&onChange(i);
+  };
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting) setze([...track.children].indexOf(e.target));
+  }),{root:track,threshold:.6});
+  [...track.children].forEach(img=>io.observe(img));
+  const gehe=(i,sofort)=>{
+    i=Math.max(0,Math.min(count-1,i));
+    lade(i);
+    track.scrollTo({left:i*track.clientWidth,behavior:sofort?'instant':'smooth'});
+  };
+  dots.forEach((d,i)=>d.addEventListener('click',e=>{e.stopPropagation();gehe(i);}));
+  return {gehe,schritt:d=>gehe(aktiv+d),aktiv:()=>aktiv,stop:()=>io.disconnect()};
+}
+
+// ── PROJEKTKARTEN ──
+const grid=document.getElementById('projekte-grid');
+projects.forEach((p,pi)=>{
+  const card=document.createElement('article');
+  card.className='projekt-card';
+  card.innerHTML=`
+    <div class="slider-wrap">
+      <div class="slider-track" tabindex="0" role="region" aria-label="Bilder: ${esc(p.title)}">
+        ${Array.from({length:p.count},(_,i)=>{
+          // nur Bild 1 und 2 sofort; die übrigen lädt der Slider beim Blättern nach
+          const q=i<2?'':'data-';
+          return `<img ${q}src="${bild(p,i,'klein')}" ${q}srcset="${bild(p,i,'klein')} 600w, ${bild(p,i,'mittel')} 900w" sizes="(min-width:1000px) 320px, (min-width:640px) 50vw, 100vw" alt="${esc(p.title)} – Bild ${i+1} von ${p.count}" loading="lazy" decoding="async" width="600" height="800" draggable="false"/>`;
+        }).join('')}
+      </div>
+      <button class="slide-btn slide-prev" type="button" aria-label="Vorheriges Bild – ${esc(p.title)}">&#8249;</button>
+      <button class="slide-btn slide-next" type="button" aria-label="Nächstes Bild – ${esc(p.title)}">&#8250;</button>
+      <div class="dots"></div>
+    </div>
+    <div class="projekt-info">
+      <h3>${esc(p.title)}</h3>
+      <p>${esc(p.desc)}</p>
+      <span class="projekt-tag">${esc(p.tag)}</span>
+      <button class="projekt-open" type="button">Alle ${p.count} Bilder in Großansicht ›</button>
+    </div>`;
+  grid.appendChild(card);
+  const s=slider(card.querySelector('.slider-track'),card.querySelector('.dots'),p.count,p.title);
+  card.querySelector('.slide-prev').addEventListener('click',e=>{e.stopPropagation();s.schritt(-1);});
+  card.querySelector('.slide-next').addEventListener('click',e=>{e.stopPropagation();s.schritt(1);});
+  const oeffnen=e=>{e.stopPropagation();openOverlay(pi,s.aktiv(),card.querySelector('.projekt-open'));};
+  card.querySelector('.projekt-open').addEventListener('click',oeffnen);
+  card.addEventListener('click',oeffnen);
+});
+
+// ── GROSSANSICHT ──
+const dlg=document.getElementById('overlay');
+const ovTrack=document.getElementById('ov-track');
+let ov=null, ovAusloeser=null;
+function openOverlay(pi,start=0,ausloeser){
+  const p=projects[pi];
+  ovAusloeser=ausloeser;
+  ov&&ov.stop();
+  ovTrack.innerHTML=Array.from({length:p.count},(_,i)=>
+    `<img ${Math.abs(i-start)>1?'data-':''}src="${bild(p,i)}" ${Math.abs(i-start)>1?'data-':''}srcset="${bild(p,i,'mittel')} 900w, ${bild(p,i)} 1200w" sizes="(min-width:900px) 900px, 100vw" alt="${esc(p.title)} – Bild ${i+1} von ${p.count}" width="1200" height="1600" decoding="async"/>`).join('');
+  document.getElementById('ov-title').textContent=p.title;
+  document.getElementById('ov-desc').textContent=p.desc;
+  document.getElementById('ov-tag').textContent=p.tag;
+  const zaehler=document.getElementById('ov-count');
+  ov=slider(ovTrack,document.getElementById('ov-dots'),p.count,'',i=>{zaehler.textContent=`Bild ${i+1} von ${p.count}`;});
+  zaehler.textContent=`Bild ${start+1} von ${p.count}`;
+  dlg.showModal();
+  ov.gehe(start,true);
+}
+function closeOverlay(){ dlg.close(); }
+dlg.addEventListener('close',()=>{
+  ov&&ov.stop();
+  // Fokus zurück auf den Button der Karte, von der aus geöffnet wurde
+  ovAusloeser&&ovAusloeser.focus({preventScroll:true});
+});
+dlg.addEventListener('click',e=>{ if(e.target===dlg) closeOverlay(); }); // Klick auf den dunklen Hintergrund
+dlg.querySelector('.ov-close').addEventListener('click',closeOverlay);
+dlg.querySelector('.ov-prev').addEventListener('click',()=>ov.schritt(-1));
+dlg.querySelector('.ov-next').addEventListener('click',()=>ov.schritt(1));
+dlg.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft'){e.preventDefault();ov.schritt(-1);}
+  if(e.key==='ArrowRight'){e.preventDefault();ov.schritt(1);}
+});
+
+// ── NAVIGATION ──
+const nav=document.querySelector('nav');
+// Kopfzeile verkleinern, sobald gescrollt wird (wirkt per CSS nur am Handy)
+let navTick=false;
+const navGroesse=()=>{nav.classList.toggle('klein',window.scrollY>24);navTick=false;};
+window.addEventListener('scroll',()=>{if(!navTick){navTick=true;requestAnimationFrame(navGroesse);}},{passive:true});
+navGroesse();
+const menu=document.getElementById('mobileMenu');
+const toggle=document.querySelector('.nav-toggle');
+const setNavHeight=()=>document.documentElement.style.setProperty('--nav-h',nav.offsetHeight+'px');
+new ResizeObserver(setNavHeight).observe(nav);
+function setMenu(offen){
+  menu.classList.toggle('open',offen);
+  toggle.setAttribute('aria-expanded',offen);
+}
+toggle.addEventListener('click',()=>setMenu(!menu.classList.contains('open')));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&menu.classList.contains('open')){setMenu(false);toggle.focus();}
+});
+document.addEventListener('click',e=>{
+  if(menu.classList.contains('open')&&!menu.contains(e.target)&&!toggle.contains(e.target)) setMenu(false);
+});
+
+// ── KONTAKTFORMULAR (Formspree) ──
+document.getElementById('kontakt-form').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=this.querySelector('.btn-submit');
+  const status=document.getElementById('form-status');
+  status.className='form-status';status.textContent='';
+  btn.textContent='Wird gesendet…';btn.disabled=true;
+  try{
+    const res=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});
+    if(!res.ok) throw new Error();
+    this.hidden=true;
+    status.classList.add('ok');
+    status.textContent='✓ Nachricht gesendet! Wir melden uns bald bei Ihnen.';
+  }catch{
+    btn.textContent='Anfrage senden';btn.disabled=false;
+    status.classList.add('fehler');
+    status.textContent='Leider ist beim Senden ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder rufen Sie uns an: 0160 91847701.';
+  }
+});
+
+// ── JAHRESZAHL ──
+document.querySelectorAll('.jahr').forEach(el=>el.textContent=new Date().getFullYear());
+</script>
+</body>
+</html>
